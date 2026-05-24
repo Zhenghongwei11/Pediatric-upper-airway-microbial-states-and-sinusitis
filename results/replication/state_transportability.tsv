@@ -1,0 +1,8 @@
+state_label	primary_genera	present_in_prjeb35160	present_in_prjna422760	prjeb35160_profile_fraction	prjna422760_profile_fraction	transportability_interpretation
+Moraxella-dominant state	Moraxella	yes	yes	0.5077	0.0536	Observed in both cohorts; supports descriptive ecological-state transportability.
+Haemophilus-dominant state	Haemophilus	yes	yes	0.1053	0.0893	Observed in both cohorts; supports descriptive ecological-state transportability.
+Streptococcus-dominant state	Streptococcus	yes	yes	0.0464	0.2321	Observed in both cohorts; supports descriptive ecological-state transportability.
+Fusobacterium/anaerobe-dominant state	Fusobacterium;Porphyromonas;Prevotella;Alloprevotella	yes	yes	0.0031	0.125	Observed in both cohorts; supports descriptive ecological-state transportability.
+Neisseria-dominant state	Neisseria	no	yes	0.0	0.0714	Observed in phenotype-transfer cohort only; interpreted as anatomical or cohort-specific context.
+Other-dominant state	Other named dominant genus	yes	yes	0.3282	0.0179	Observed in both cohorts; supports descriptive ecological-state transportability.
+Mixed community state	No single dominant genus	yes	yes	0.0093	0.4107	Observed in both cohorts; supports descriptive ecological-state transportability.

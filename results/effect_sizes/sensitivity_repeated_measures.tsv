@@ -1,0 +1,2 @@
+claim_id	dataset_id	outcome	model	exposure	effect_type	effect	ci_lower	ci_upper	pvalue	fdr	n	analysis_status
+C1	PRJEB35160	URI-to-acute-sinusitis progression	mixed-effects logistic regression with child intercept	cluster_iTRUE	odds_ratio	1.095	0	1859289.351	0.9901	0.9901	323	unstable_convergence: unable to evaluate scaled gradient | Hessian is numerically singular: parameters are not uniquely determined | variance-covariance matrix computed from finite-difference Hessian is not positive definite or contains NA values: falling back to var-cov estimated from RX

@@ -1,0 +1,3 @@
+dataset_id	metric	outcome_group	n_profiles	n_children	median_shannon	iqr_shannon	between_group_test	pvalue	fdr	adjusted_odds_ratio_per_unit	adjusted_ci_lower	adjusted_ci_upper	adjusted_pvalue
+PRJEB35160	Shannon diversity	Sinusitis	143	19	0.8437600893454285	0.6333097037192404	Wilcoxon rank-sum	0.9259	0.9259	1.088	0.694	1.707	0.7132
+PRJEB35160	Shannon diversity	URI	180	26	0.7639028607949401	0.6919139464925778	Wilcoxon rank-sum	0.9259	0.9259	1.088	0.694	1.707	0.7132

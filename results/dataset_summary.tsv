@@ -1,0 +1,8 @@
+dataset_id	role	provider	n_runs	n_samples	published_independent_n	published_profile_n	platform	instrument_model	library_strategy	library_source	metadata_path	raw_fastq_downloaded	status
+PRJEB35160	primary	ENA	462	462	58	354	ILLUMINA	NextSeq 500	AMPLICON	METAGENOMIC	data/raw/metadata/PRJEB35160_run_metadata.tsv	no	metadata_fetched
+PRJNA275918	replication_sensitivity	NCBI	3035	3035	234	3035	ILLUMINA	Illumina MiSeq	AMPLICON	METAGENOMIC	data/raw/metadata/PRJNA275918_run_metadata.tsv	no	metadata_fetched
+PRJNA554533	manual_follow_up	NCBI	75	75	75	75	ILLUMINA	Illumina MiSeq	AMPLICON	METAGENOMIC	data/raw/metadata/PRJNA554533_run_metadata.tsv	no	metadata_fetched
+PRJNA422760	phenotype_transfer	NCBI	56	56	56	56	LS454	454 GS FLX Titanium	AMPLICON	METAGENOMIC	data/raw/metadata/PRJNA422760_run_metadata.tsv	no	metadata_fetched
+PRJEB88727	phenotype_transfer	ENA	174	174	174	174	ILLUMINA	Illumina MiSeq	AMPLICON	METAGENOMIC	data/raw/metadata/PRJEB88727_run_metadata.tsv	no	metadata_fetched
+PRJNA1413967	adjacent_control	NCBI	126	126	126	126	ILLUMINA	Illumina NovaSeq 6000	AMPLICON	METAGENOMIC	data/raw/metadata/PRJNA1413967_run_metadata.tsv	no	metadata_fetched
+PRJNA1049442	adjacent_control	NCBI	152	152	152	152	ILLUMINA	Illumina NovaSeq 6000	WGS	METAGENOMIC	data/raw/metadata/PRJNA1049442_run_metadata.tsv	no	metadata_fetched

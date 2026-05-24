@@ -1,0 +1,6 @@
+figure_id	panel	generating_script	anchor_table	status
+Figure1	all	scripts/generate_publication_figures.py	results/figures/figure1_design.tsv	generated
+Figure2	all	scripts/generate_publication_figures.py	results/figures/figure2_endpoint_story.tsv	generated
+Figure3	all	scripts/generate_publication_figures.py	results/figures/figure3_specificity_story.tsv	generated
+Figure4	all	scripts/generate_publication_figures.py	results/figures/figure4_state_transportability.tsv	generated
+Figure5	all	scripts/generate_publication_figures.py	results/effect_sizes/prjeb35160_child_state_burden_summary.tsv	generated

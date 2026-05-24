@@ -1,0 +1,12 @@
+dataset	analysis_set	variable	analysis_role	n_total	n_available	n_missing	missing_percent
+PRJEB35160	URI and sinusitis profiles	Endpoint group	Primary endpoint definition	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Child identifier	Repeated-profile guardrail	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Dominant genus	State assignment	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Dominant-genus fraction	State assignment	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Season	Adjusted model covariate	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Daycare attendance	Adjusted model covariate	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Household tobacco exposure	Adjusted model covariate	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Viral burden	Adjusted model covariate	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Antibiotics at visit	Same-visit treatment context; not primary adjustment covariate	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Shannon diversity	Diversity readout	323	323	0	0.0
+PRJEB35160	URI and sinusitis profiles	Complete adjusted-model profile set	Profiles with endpoint, child ID, state, season, daycare, tobacco exposure, and viral burden	323	323	0	0.0

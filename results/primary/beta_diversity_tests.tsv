@@ -1,0 +1,6 @@
+dataset_id	analysis	term	distance	df	r2	statistic	pvalue	n	analysis_status	fdr
+PRJEB35160	PERMANOVA by clinical endpoint, child-stratified permutations	clinical_endpoint	Bray-Curtis	1	0.0088	2.834	1	323	estimated	1
+PRJEB35160	PERMANOVA by Moraxella-dominant state, child-stratified permutations	moraxella_dominant	Bray-Curtis	1	0.3178	149.534	0.01	323	estimated	0.0125
+PRJEB35160	PERMANOVA by nasopharyngeal ecological state, child-stratified permutations	ecological_cluster	Bray-Curtis	3	0.2472	34.918	0.01	323	estimated	0.0125
+PRJEB35160	Dispersion check by clinical endpoint	clinical_endpoint	Bray-Curtis	1	NA	7.178	0.007761	323	diagnostic	0.0125
+PRJEB35160	Dispersion check by Moraxella-dominant state	moraxella_dominant	Bray-Curtis	1	NA	342.78	1.412e-52	323	diagnostic	7.06e-52

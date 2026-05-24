@@ -1,0 +1,132 @@
+dataset_id	run	biosample	sample_name	patient_id	site_code	clinical_label	label_type	repository_context	supplement_mentions_sample	sample_name_parse	biosample_tissue_match	mainline_decision
+PRJNA422760	SRR6407828	SAMN08201113	11a_adenoid	11	a	adenoid	paired_tissue_site	patient 11, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407858	SAMN08201141	11c_tonsil	11	c	tonsil	paired_tissue_site	patient 11, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407827	SAMN08201114	12a_adenoid	12	a	adenoid	paired_tissue_site	patient 12, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407857	SAMN08201142	12c_tonsil	12	c	tonsil	paired_tissue_site	patient 12, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407855	SAMN08201115	13a_adenoid	13	a	adenoid	paired_tissue_site	patient 13, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407866	SAMN08201143	13c_tonsil	13	c	tonsil	paired_tissue_site	patient 13, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407829	SAMN08201116	14a_adenoid	14	a	adenoid	paired_tissue_site	patient 14, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407865	SAMN08201144	14c_tonsil	14	c	tonsil	paired_tissue_site	patient 14, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407826	SAMN08201117	15a_adenoid	15	a	adenoid	paired_tissue_site	patient 15, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407868	SAMN08201145	15c_tonsil	15	c	tonsil	paired_tissue_site	patient 15, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407825	SAMN08201118	16a_adenoid	16	a	adenoid	paired_tissue_site	patient 16, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407867	SAMN08201146	16c_tonsil	16	c	tonsil	paired_tissue_site	patient 16, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407880	SAMN08201119	17a_adenoid	17	a	adenoid	paired_tissue_site	patient 17, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407864	SAMN08201147	17c_tonsil	17	c	tonsil	paired_tissue_site	patient 17, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407879	SAMN08201120	18a_adenoid	18	a	adenoid	paired_tissue_site	patient 18, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407863	SAMN08201148	18c_tonsil	18	c	tonsil	paired_tissue_site	patient 18, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407878	SAMN08201121	19a_adenoid	19	a	adenoid	paired_tissue_site	patient 19, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407841	SAMN08201149	19c_tonsil	19	c	tonsil	paired_tissue_site	patient 19, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407832	SAMN08201109	1a_adenoid	1	a	adenoid	paired_tissue_site	patient 1, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407853	SAMN08201137	1c_tonsil	1	c	tonsil	paired_tissue_site	patient 1, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407877	SAMN08201122	20a_adenoid	20	a	adenoid	paired_tissue_site	patient 20, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407842	SAMN08201150	20c_tonsil	20	c	tonsil	paired_tissue_site	patient 20, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407876	SAMN08201123	21a_adenoid	21	a	adenoid	paired_tissue_site	patient 21, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407843	SAMN08201151	21c_tonsil	21	c	tonsil	paired_tissue_site	patient 21, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407875	SAMN08201124	22a_adenoid	22	a	adenoid	paired_tissue_site	patient 22, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407844	SAMN08201152	22c_tonsil	22	c	tonsil	paired_tissue_site	patient 22, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407874	SAMN08201125	23a_adenoid	23	a	adenoid	paired_tissue_site	patient 23, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407837	SAMN08201153	23c_tonsil	23	c	tonsil	paired_tissue_site	patient 23, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407873	SAMN08201126	25a_adenoid	25	a	adenoid	paired_tissue_site	patient 25, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407838	SAMN08201154	25c_tonsil	25	c	tonsil	paired_tissue_site	patient 25, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407872	SAMN08201127	26a_adenoid	26	a	adenoid	paired_tissue_site	patient 26, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407839	SAMN08201155	26c_tonsil	26	c	tonsil	paired_tissue_site	patient 26, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407871	SAMN08201128	28a_adenoid	28	a	adenoid	paired_tissue_site	patient 28, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407840	SAMN08201156	28c_tonsil	28	c	tonsil	paired_tissue_site	patient 28, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407851	SAMN08201129	33a_adenoid	33	a	adenoid	paired_tissue_site	patient 33, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407835	SAMN08201157	33c_tonsil	33	c	tonsil	paired_tissue_site	patient 33, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407852	SAMN08201130	35a_adenoid	35	a	adenoid	paired_tissue_site	patient 35, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407836	SAMN08201158	35c_tonsil	35	c	tonsil	paired_tissue_site	patient 35, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407849	SAMN08201131	39a_adenoid	39	a	adenoid	paired_tissue_site	patient 39, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407861	SAMN08201159	39c_tonsil	39	c	tonsil	paired_tissue_site	patient 39, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407831	SAMN08201110	3a_adenoid	3	a	adenoid	paired_tissue_site	patient 3, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407854	SAMN08201138	3c_tonsil	3	c	tonsil	paired_tissue_site	patient 3, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407850	SAMN08201132	40a_adenoid	40	a	adenoid	paired_tissue_site	patient 40, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407856	SAMN08201160	40c_tonsil	40	c	tonsil	paired_tissue_site	patient 40, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407847	SAMN08201133	42a_adenoid	42	a	adenoid	paired_tissue_site	patient 42, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407862	SAMN08201161	42c_tonsil	42	c	tonsil	paired_tissue_site	patient 42, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407848	SAMN08201134	43a_adenoid	43	a	adenoid	paired_tissue_site	patient 43, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407830	SAMN08201162	43c_tonsil	43	c	tonsil	paired_tissue_site	patient 43, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407845	SAMN08201135	45a_adenoid	45	a	adenoid	paired_tissue_site	patient 45, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407860	SAMN08201163	45c_tonsil	45	c	tonsil	paired_tissue_site	patient 45, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407846	SAMN08201136	46a_adenoid	46	a	adenoid	paired_tissue_site	patient 46, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407859	SAMN08201164	46c_tonsil	46	c	tonsil	paired_tissue_site	patient 46, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407834	SAMN08201111	6a_adenoid	6	a	adenoid	paired_tissue_site	patient 6, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407870	SAMN08201139	6c_tonsil	6	c	tonsil	paired_tissue_site	patient 6, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407833	SAMN08201112	8a_adenoid	8	a	adenoid	paired_tissue_site	patient 8, adenoid pads	no	PASS	PASS	usable_phenotype_transfer
+PRJNA422760	SRR6407869	SAMN08201140	8c_tonsil	8	c	tonsil	paired_tissue_site	patient 8, tonsils	no	PASS	PASS	usable_phenotype_transfer
+PRJNA554533	SRR9679882	SAMN12268396	RHINO-01				not_recovered	host=Homo sapiens; collection_date=2017-01-13; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679881	SAMN12268442	RHINO-02				not_recovered	host=Homo sapiens; collection_date=2017-05-10; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679880	SAMN12268443	RHINO-03				not_recovered	host=Homo sapiens; collection_date=2017-05-11; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679879	SAMN12268444	RHINO-04				not_recovered	host=Homo sapiens; collection_date=2017-05-15; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679886	SAMN12268445	RHINO-05				not_recovered	host=Homo sapiens; collection_date=2017-05-16; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679885	SAMN12268446	RHINO-06				not_recovered	host=Homo sapiens; collection_date=2017-05-17; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679909	SAMN12268397	RHINO-07				not_recovered	host=Homo sapiens; collection_date=2017-01-18; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679883	SAMN12268447	RHINO-08				not_recovered	host=Homo sapiens; collection_date=2017-05-19; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679889	SAMN12268448	RHINO-09				not_recovered	host=Homo sapiens; collection_date=2017-05-24; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679888	SAMN12268449	RHINO-10				not_recovered	host=Homo sapiens; collection_date=2017-05-29; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679928	SAMN12268450	RHINO-11				not_recovered	host=Homo sapiens; collection_date=2017-05-30; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679927	SAMN12268398	RHINO-12				not_recovered	host=Homo sapiens; collection_date=2017-01-19; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679930	SAMN12268451	RHINO-13				not_recovered	host=Homo sapiens; collection_date=2017-06-05; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679929	SAMN12268453	RHINO-14				not_recovered	host=Homo sapiens; collection_date=2017-06-07; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679932	SAMN12268459	RHINO-15				not_recovered	host=Homo sapiens; collection_date=2017-07-06; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679931	SAMN12268452	RHINO-16				not_recovered	host=Homo sapiens; collection_date=2017-06-06; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679934	SAMN12268416	RHINO-17				not_recovered	host=Homo sapiens; collection_date=2017-02-09; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679933	SAMN12268454	RHINO-18				not_recovered	host=Homo sapiens; collection_date=2017-06-08; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679936	SAMN12268455	RHINO-19				not_recovered	host=Homo sapiens; collection_date=2017-06-12; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679935	SAMN12268456	RHINO-20				not_recovered	host=Homo sapiens; collection_date=2017-06-13; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679895	SAMN12268457	RHINO-21				not_recovered	host=Homo sapiens; collection_date=2017-06-14; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679896	SAMN12268458	RHINO-22				not_recovered	host=Homo sapiens; collection_date=2017-07-05; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679897	SAMN12268460	RHINO-23				not_recovered	host=Homo sapiens; collection_date=2017-07-07; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679898	SAMN12268399	RHINO-24				not_recovered	host=Homo sapiens; collection_date=2017-01-20; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679891	SAMN12268461	RHINO-25				not_recovered	host=Homo sapiens; collection_date=2017-07-08; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679892	SAMN12268462	RHINO-26				not_recovered	host=Homo sapiens; collection_date=2017-08-26; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679893	SAMN12268400	RHINO-27				not_recovered	host=Homo sapiens; collection_date=2017-01-21; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679894	SAMN12268463	RHINO-28				not_recovered	host=Homo sapiens; collection_date=2017-10-09; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679903	SAMN12268464	RHINO-29				not_recovered	host=Homo sapiens; collection_date=2017-10-11; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679904	SAMN12268465	RHINO-30				not_recovered	host=Homo sapiens; collection_date=2017-10-18; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679938	SAMN12268401	RHINO-31				not_recovered	host=Homo sapiens; collection_date=2017-01-23; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679937	SAMN12268466	RHINO-32				not_recovered	host=Homo sapiens; collection_date=2017-11-06; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679901	SAMN12268467	RHINO-33				not_recovered	host=Homo sapiens; collection_date=2017-11-08; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679924	SAMN12268405	RHINO-34				not_recovered	host=Homo sapiens; collection_date=2017-05-27; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679942	SAMN12268402	RHINO-35				not_recovered	host=Homo sapiens; collection_date=2017-01-24; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679941	SAMN12268407	RHINO-36				not_recovered	host=Homo sapiens; collection_date=2017-01-30; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679940	SAMN12268408	RHINO-37				not_recovered	host=Homo sapiens; collection_date=2017-01-31; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679939	SAMN12268409	RHINO-38				not_recovered	host=Homo sapiens; collection_date=2017-02-01; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679951	SAMN12268410	RHINO-39				not_recovered	host=Homo sapiens; collection_date=2017-02-02; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679950	SAMN12268414	RHINO-40				not_recovered	host=Homo sapiens; collection_date=2017-02-07; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679905	SAMN12268411	RHINO-41				not_recovered	host=Homo sapiens; collection_date=2017-02-03; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679906	SAMN12268393	RHINO-42				not_recovered	host=Homo sapiens; collection_date=2016-12-12; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679917	SAMN12268412	RHINO-43				not_recovered	host=Homo sapiens; collection_date=2017-02-04; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679918	SAMN12268418	RHINO-44				not_recovered	host=Homo sapiens; collection_date=2017-02-11; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679907	SAMN12268419	RHINO-45				not_recovered	host=Homo sapiens; collection_date=2017-02-13; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679902	SAMN12268417	RHINO-46				not_recovered	host=Homo sapiens; collection_date=2017-04-10; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679899	SAMN12268429	RHINO-47				not_recovered	host=Homo sapiens; collection_date=2017-02-24; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679900	SAMN12268404	RHINO-48				not_recovered	host=Homo sapiens; collection_date=2017-01-26; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679887	SAMN12268394	RHINO-49				not_recovered	host=Homo sapiens; collection_date=2016-12-13; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679890	SAMN12268415	RHINO-50				not_recovered	host=Homo sapiens; collection_date=2017-02-08; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679919	SAMN12268433	RHINO-51				not_recovered	host=Homo sapiens; collection_date=2017-03-07; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679926	SAMN12268430	RHINO-52				not_recovered	host=Homo sapiens; collection_date=2017-02-25; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679923	SAMN12268426	RHINO-53				not_recovered	host=Homo sapiens; collection_date=2017-02-21; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679920	SAMN12268432	RHINO-54				not_recovered	host=Homo sapiens; collection_date=2017-02-28; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679922	SAMN12268406	RHINO-55				not_recovered	host=Homo sapiens; collection_date=2017-01-28; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679949	SAMN12268395	RHINO-56				not_recovered	host=Homo sapiens; collection_date=2016-12-14; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679913	SAMN12268413	RHINO-57				not_recovered	host=Homo sapiens; collection_date=2017-02-06; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679884	SAMN12268420	RHINO-58				not_recovered	host=Homo sapiens; collection_date=2017-02-14; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679925	SAMN12268421	RHINO-59				not_recovered	host=Homo sapiens; collection_date=2017-02-15; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679952	SAMN12268422	RHINO-60				not_recovered	host=Homo sapiens; collection_date=2017-02-16; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679953	SAMN12268423	RHINO-61				not_recovered	host=Homo sapiens; collection_date=2017-02-17; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679908	SAMN12268431	RHINO-62				not_recovered	host=Homo sapiens; collection_date=2017-02-27; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679921	SAMN12268424	RHINO-63				not_recovered	host=Homo sapiens; collection_date=2017-05-27; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679910	SAMN12268425	RHINO-64				not_recovered	host=Homo sapiens; collection_date=2017-02-20; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679911	SAMN12268427	RHINO-65				not_recovered	host=Homo sapiens; collection_date=2017-02-22; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679912	SAMN12268428	RHINO-66				not_recovered	host=Homo sapiens; collection_date=2017-02-23; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679948	SAMN12268403	RHINO-67				not_recovered	host=Homo sapiens; collection_date=2017-01-25; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679914	SAMN12268434	RHINO-68				not_recovered	host=Homo sapiens; collection_date=2017-04-03; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679915	SAMN12268435	RHINO-69				not_recovered	host=Homo sapiens; collection_date=2017-04-04; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679916	SAMN12268436	RHINO-70				not_recovered	host=Homo sapiens; collection_date=2017-04-05; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679947	SAMN12268437	RHINO-71				not_recovered	host=Homo sapiens; collection_date=2017-04-06; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679946	SAMN12268438	RHINO-72				not_recovered	host=Homo sapiens; collection_date=2017-04-07; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679945	SAMN12268439	RHINO-73				not_recovered	host=Homo sapiens; collection_date=2017-04-08; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679944	SAMN12268440	RHINO-74				not_recovered	host=Homo sapiens; collection_date=2017-04-12; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient
+PRJNA554533	SRR9679943	SAMN12268441	RHINO-75				not_recovered	host=Homo sapiens; collection_date=2017-04-26; geo_loc_name=Italy: Rome	no	PASS	not_applicable	hold_label_insufficient

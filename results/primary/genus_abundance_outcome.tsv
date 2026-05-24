@@ -1,0 +1,7 @@
+dataset_id	genus	median_abundance_sinusitis	median_abundance_uri	median_difference	wilcoxon_pvalue	adjusted_odds_ratio_per_10pct	adjusted_ci_lower	adjusted_ci_upper	adjusted_pvalue	n	analysis_status	wilcoxon_fdr	adjusted_fdr
+PRJEB35160	Moraxella	0.5743	0.3162	0.2581	0.02138	1.074	1.008	1.145	0.02682	323	estimated	0.1283	0.1609
+PRJEB35160	Haemophilus	5e-4	5e-4	-1e-4	0.9276	0.91	0.825	1.005	0.06264	323	estimated	0.9823	0.1879
+PRJEB35160	Alloiococcus	0.0645	0.0908	-0.0263	0.2485	0.961	0.863	1.07	0.4653	323	estimated	0.7363	0.7074
+PRJEB35160	Staphylococcus	0	0	0	0.6345	0.938	0.788	1.117	0.4716	323	estimated	0.9518	0.7074
+PRJEB35160	Streptococcus	2e-4	1e-4	1e-4	0.3682	1.007	0.863	1.175	0.93	323	estimated	0.7363	0.9592
+PRJEB35160	Corynebacterium	0.0216	0.033	-0.0114	0.9823	1.003	0.891	1.129	0.9592	323	estimated	0.9823	0.9592

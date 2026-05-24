@@ -1,0 +1,9 @@
+claim_id	dataset_id	covariate	model	effect_type	effect	ci_lower	ci_upper	pvalue	fdr	analysis_status
+C3	PRJEB35160	cluster_iTRUE	adjusted logistic regression	odds_ratio	1.269	0.788	2.042	0.3268	0.5229	estimated
+C3	PRJEB35160	seasonSpring	adjusted logistic regression	odds_ratio	0.668	0.354	1.258	0.2115	0.423	estimated
+C3	PRJEB35160	seasonSummer	adjusted logistic regression	odds_ratio	0.913	0.382	2.179	0.8369	0.9565	estimated
+C3	PRJEB35160	seasonWinter	adjusted logistic regression	odds_ratio	0.634	0.349	1.152	0.135	0.3601	estimated
+C3	PRJEB35160	daycareYes	adjusted logistic regression	odds_ratio	4.07	2.222	7.453	5.44e-6	4.352e-5	estimated
+C3	PRJEB35160	tobacco_exposureYes	adjusted logistic regression	odds_ratio	0	0	Inf	0.9822	0.9822	estimated
+C3	PRJEB35160	virus_count	adjusted logistic regression	odds_ratio	0.96	0.66	1.396	0.8304	0.9565	estimated
+C3	PRJEB35160	antibiotics_taken	adjusted logistic regression	odds_ratio	3.985	0.978	16.244	0.0538	0.2152	estimated

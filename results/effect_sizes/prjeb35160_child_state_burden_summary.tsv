@@ -1,0 +1,4 @@
+dataset_id	child_group	n_children	median_profiles_per_child	median_sinusitis_profile_fraction	median_moraxella_dominant_profile_fraction	children_with_any_moraxella_dominant
+PRJEB35160	ever_sinusitis_no	26	5.5	0.0	0.4545	23
+PRJEB35160	ever_sinusitis_yes	19	7.0	1.0	0.5714	19
+PRJEB35160	all_analyzable_children	45	6.0	0.0	0.5385	42

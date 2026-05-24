@@ -1,0 +1,4 @@
+dataset	threshold_percent	exposed_profiles	exposed_sinusitis_profiles	unexposed_profiles	unexposed_sinusitis_profiles	risk_ratio	risk_ratio_ci	adjusted_or	adjusted_or_ci	pvalue	fdr	interpretation
+PRJEB35160	25	164	85	159	58	1.421	1.104-1.829	1.878	1.167-3.024	0.009477	0.01422	Direction retained
+PRJEB35160	30	164	85	159	58	1.421	1.104-1.829	1.878	1.167-3.024	0.009477	0.01422	Direction retained
+PRJEB35160	50	149	77	174	66	1.362	1.066-1.741	1.798	1.117-2.894	0.01566	0.01566	Direction retained

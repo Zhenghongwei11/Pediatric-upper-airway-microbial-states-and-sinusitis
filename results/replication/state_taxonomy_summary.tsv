@@ -1,0 +1,14 @@
+dataset_id	cohort_role	state_label	state_key	n_profiles	n_subjects	profile_fraction	clinical_positive_profiles	clinical_positive_fraction	median_dominant_fraction_percent
+PRJEB35160	Endpoint-discovery	Moraxella-dominant state	moraxella_dominant	164	42	0.5077	85	0.5183	82.685
+PRJNA422760	Phenotype-transfer	Moraxella-dominant state	moraxella_dominant	3	3	0.0536	1	0.3333	36.468
+PRJEB35160	Endpoint-discovery	Haemophilus-dominant state	haemophilus_dominant	34	22	0.1053	12	0.3529	76.552
+PRJNA422760	Phenotype-transfer	Haemophilus-dominant state	haemophilus_dominant	5	5	0.0893	3	0.6	41.244
+PRJEB35160	Endpoint-discovery	Streptococcus-dominant state	streptococcus_dominant	15	11	0.0464	6	0.4	64.677
+PRJNA422760	Phenotype-transfer	Streptococcus-dominant state	streptococcus_dominant	13	8	0.2321	7	0.5385	51.239
+PRJEB35160	Endpoint-discovery	Fusobacterium/anaerobe-dominant state	anaerobe_dominant	1	1	0.0031	1	1.0	34.283
+PRJNA422760	Phenotype-transfer	Fusobacterium/anaerobe-dominant state	anaerobe_dominant	7	6	0.125	2	0.2857	36.575
+PRJNA422760	Phenotype-transfer	Neisseria-dominant state	neisseria_dominant	4	3	0.0714	2	0.5	33.544
+PRJEB35160	Endpoint-discovery	Other-dominant state	other_dominant	106	35	0.3282	37	0.3491	59.655
+PRJNA422760	Phenotype-transfer	Other-dominant state	other_dominant	1	1	0.0179	1	1.0	40.567
+PRJEB35160	Endpoint-discovery	Mixed community state	mixed	3	3	0.0093	2	0.6667	29.136
+PRJNA422760	Phenotype-transfer	Mixed community state	mixed	23	18	0.4107	12	0.5217	26.273

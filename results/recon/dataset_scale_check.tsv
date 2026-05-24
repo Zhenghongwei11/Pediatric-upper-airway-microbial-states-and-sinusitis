@@ -1,0 +1,8 @@
+dataset_id	role	n_runs	n_samples	published_independent_n	published_profile_n	local_workflow_ok	raw_read_reprocessing_default	interpretation_boundary
+PRJEB35160	primary	462	462	58	354	yes	no	primary clinical endpoint
+PRJNA275918	replication_sensitivity	3035	3035	234	3035	yes	no	ecological sensitivity only
+PRJNA554533	manual_follow_up	75	75	75	75	yes	no	ecological sensitivity only
+PRJNA422760	phenotype_transfer	56	56	56	56	yes	no	ecological sensitivity only
+PRJEB88727	phenotype_transfer	174	174	174	174	yes	no	ecological sensitivity only
+PRJNA1413967	adjacent_control	126	126	126	126	yes	no	ecological sensitivity only
+PRJNA1049442	adjacent_control	152	152	152	152	yes	no	ecological sensitivity only
