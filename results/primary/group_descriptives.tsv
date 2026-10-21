@@ -1,0 +1,3 @@
+group	n_profiles	n_children	profiles_per_child_median	profiles_per_child_min	profiles_per_child_max	profiles_per_child_q1	profiles_per_child_q3	burden_median	baseline_age_min	baseline_age_max	shannon_profile_median	daycare_yes_children	tobacco_yes_children
+URI	180	26	5.5	1	21	3.25	9.0	0.45454545454545453	4	6	0.7639028607949401	20	1
+Sinusitis	143	19	7.0	3	13	5.0	9.5	0.5714285714285714	4	6	0.8437600893454285	16	0

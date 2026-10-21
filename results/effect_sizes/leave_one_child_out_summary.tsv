@@ -1,2 +1,0 @@
-dataset_id	exposure	model	successful_models	omitted_children	median_odds_ratio	min_odds_ratio	max_odds_ratio	proportion_or_above_one	min_pvalue	max_pvalue	analysis_status
-PRJEB35160	Moraxella-dominant state	leave-one-child-out adjusted logistic regression	44	45	1.876	1.691	2.163	1	0.002019	0.03337	estimated

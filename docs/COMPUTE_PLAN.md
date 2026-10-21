@@ -2,14 +2,18 @@
 
 ## Default workflow
 
-The default workflow is designed for a laptop. It uses public run metadata, public supplementary files, and small processed companion artifacts. It does not download raw FASTQ files.
+The default workflow runs on a recent laptop after dependencies are installed. It acquires a pinned public primary processed object, a published supplementary abundance workbook, and current public run metadata. It does not download or reprocess raw FASTQ reads.
 
-Expected local requirements:
+The analysis performs 2,000 whole-child bootstrap draws and 9,999 restricted permutations for each external-cohort comparison. Figure rendering and construction of the main and supplementary tables follow the analysis stages.
 
-- runtime: usually under 30 minutes after dependencies are installed;
-- memory: typically below 8 GB RAM;
-- storage: below 2 GB for the lightweight workflow.
+Expected resources are under 30 minutes of compute time after installation, under 8 GB of peak memory, and under 2 GB for downloaded inputs and generated results. These are planning estimates; network speed and processor performance affect elapsed time. Installing Python and R dependencies requires additional disk space.
 
-## Optional raw-read reprocessing
+## Inputs and scope
 
-Full raw-read reprocessing is outside the default reproduction path. If performed, it should use a separate documented workflow with sufficient temporary storage and an established 16S pipeline such as QIIME2 or DADA2.
+The primary cohort uses the public `AnalysisPhyloseq.rds` object pinned to a source repository commit. The anatomical cohort uses published PRJNA422760 genus percentages and NCBI RunInfo metadata. SHA-256 checksums are verified for the pinned RDS object, workbook, and derived input tables where stable checksums are available. Live RunInfo is checked for expected sample identity and count; its source response can change over time.
+
+The workflow reproduces the reported tables and figures from these public processed inputs. Raw-read quality control, denoising, and taxonomic assignment are outside the workflow.
+
+## Outputs
+
+The pipeline writes analysis tables to `results/primary/` and `results/external/`, main tables to `results/tables/`, supplementary tables to `results/supplementary/`, and publication figures to `plots/publication/`. It also writes figure and table provenance records under `docs/`.

@@ -1,0 +1,44 @@
+$PERMANOVA
+Permutation test for adonis under reduced model
+Marginal effects of terms
+Permutation: free
+Number of permutations: 9999
+
+adonis2(formula = dist ~ outcome_group, data = child, permutations = 9999, by = "margin")
+              Df SumOfSqs      R2      F Pr(>F)
+outcome_group  1   0.1631 0.03179 1.4117 0.2187
+Residual      43   4.9688 0.96821              
+Total         44   5.1319 1.00000              
+
+$PERMDISP
+
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 9999
+
+Response: Distances
+          Df   Sum Sq  Mean Sq      F N.Perm Pr(>F)   
+Groups     1 0.055523 0.055523 10.029   9999 0.0022 **
+Residuals 43 0.238048 0.005536                        
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+$dispersion
+
+	Homogeneity of multivariate dispersions
+
+Call: betadisper(d = dist, group = child$outcome_group, type =
+"median", bias.adjust = TRUE, add = "lingoes")
+
+No. of Positive Eigenvalues: 43
+No. of Negative Eigenvalues: 0
+
+Average distance to median:
+Sinusitis       URI 
+   0.5117    0.5828 
+
+Eigenvalues for PCoA axes:
+(Showing 8 of 43 eigenvalues)
+ PCoA1  PCoA2  PCoA3  PCoA4  PCoA5  PCoA6  PCoA7  PCoA8 
+2.2153 1.3134 0.9196 0.7781 0.6287 0.4751 0.4055 0.3116 
+

@@ -1,5 +1,0 @@
-comparison	metric	pseudo_f	p_value	permutations
-tissue	Bray-Curtis	3.649716215141845	0.004	999
-clinical_group	Bray-Curtis	1.622182235587463	0.106	999
-clinical_group_within_adenoid	Bray-Curtis	2.2044497112472268	0.034	999
-clinical_group_within_tonsil	Bray-Curtis	1.4368156492011714	0.174	999

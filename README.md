@@ -1,79 +1,52 @@
 # Pediatric upper-airway microbial states and sinusitis
 
-This repository contains the reproducible analysis code and derived outputs for a public-data study of pediatric upper-airway microbial states in relation to sinusitis-associated profiles. It is intentionally limited to computational reproduction materials: scripts, public data manifests, derived result tables, and exported figures.
+This repository contains the code and derived outputs for a reproducible analysis of public pediatric airway microbiome data. It rebuilds the five publication figures, main Tables 1–3, and supplementary Tables S1–S7 from public processed inputs.
 
-## What this repository contains
+## Reproduce
 
-- `scripts/`: data acquisition, analysis, and figure-generation scripts.
-- `data/manifest.tsv`: public data sources and stable accession identifiers.
-- `docs/DATA_MANIFEST.tsv`: reviewer-facing copy of the public data manifest.
-- `docs/FIGURE_PROVENANCE.tsv`: figure-to-script and figure-to-table provenance.
-- `docs/STATISTICAL_DECISION_RULES.md`: thresholds, multiplicity handling, and interpretation boundaries.
-- `results/`: lightweight derived tables used as figure and table anchors.
-- `plots/publication/`: exported publication figures in PDF and PNG formats.
-
-This repository does not contain manuscript drafts, submission files, internal planning notes, or credentials.
-
-## Public datasets
-
-The default pipeline uses public metadata and processed companion data rather than raw FASTQ reprocessing.
-
-- `PRJEB35160`: primary pediatric nasopharyngeal 16S rRNA cohort with URI/sinusitis annotations.
-- `PRJNA422760`: paired pediatric adenoid/tonsil 16S rRNA cohort used for anatomical-context analysis.
-- Additional public accessions are listed in `data/manifest.tsv` for dataset screening and context.
-
-## Environment
-
-The analysis was run with:
-
-- Python 3.13.7
-- R 4.4.3
-
-Install Python dependencies:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-Install R dependencies:
-
-```r
-install.packages(c("dplyr", "readr", "ggplot2", "lme4", "vegan"))
-if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-BiocManager::install("phyloseq")
-```
-
-## Reproduce the analysis
-
-Run the full lightweight workflow from the repository root:
+The complete entrypoint is:
 
 ```bash
 bash scripts/reproduce_one_click.sh
 ```
 
-The script downloads public metadata and processed companion artifacts, runs the primary and anatomical-context analyses, and regenerates the publication figures.
+It is equivalent to `make all`. The workflow downloads the pinned primary phyloseq object, the public PRJNA422760 supplementary workbook, and current NCBI RunInfo metadata. It verifies fixed-source checksums where applicable, prepares the external-cohort input tables, runs both cohort analyses, and generates all figures and tables. Outputs are written under `results/` and `plots/publication/`.
 
-For faster testing, use fewer permutations and bootstrap iterations:
+The workflow uses public processed data and published abundance percentages. It does not download or reprocess raw FASTQ reads, perform sequence quality control, or infer clinical labels from sequencing data. The primary outcome is the source-defined child follow-up group; it is not a visit-specific diagnosis or a prospective risk endpoint. The secondary analyses are exploratory and observational.
+
+## Environment
+
+Use Python 3.13.7 and R 4.4.3. Install Python packages from the pinned requirements file and install the pinned R packages with:
 
 ```bash
-PERMUTATIONS=9 BOOTSTRAP_ITERATIONS=10 bash scripts/reproduce_one_click.sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+Rscript scripts/install_r_dependencies.R
 ```
 
-## Expected outputs
+The R installation script checks the R version and installs `phyloseq` 1.50.0, `readr` 2.1.5, and `vegan` 2.7-1, with `permute` 0.9-8. See [R_ENVIRONMENT.md](docs/R_ENVIRONMENT.md) for version and installation details.
 
-Key derived tables are written under:
+## Outputs
 
-- `results/primary/`
-- `results/effect_sizes/`
-- `results/replication/`
-- `results/figures/`
-- `results/tables/`
+- `results/primary/` and `results/external/`: analysis tables, diagnostics, and run provenance.
+- `results/tables/`: main Tables 1–3. The historical dataset-screen input is `docs/DATASET_SCREEN_FLOW.tsv`.
+- `results/supplementary/`: supplementary Tables S1–S7 in XLSX and Markdown formats.
+- `plots/publication/pdf/` and `plots/publication/png/`: Figures 1–5.
+- `docs/FIGURE_PROVENANCE.tsv` and `docs/TABLE_PROVENANCE.tsv`: source-table and script mapping for each figure and table.
 
-Publication figures are written under:
+Main table display values are rounded for readability; the TSV analysis outputs retain their recorded precision. The supplementary workbook retains the precision available in its source tables.
 
-- `plots/publication/pdf/`
-- `plots/publication/png/`
+## Analysis methods
 
-The default lightweight workflow does not download raw FASTQ files. Full raw-read reprocessing is not required to reproduce the reported tables and figures.
+The primary analysis uses child-cluster robust inference, whole-child bootstrap intervals, defined threshold sensitivities, and independent-child community comparisons. The paired anatomical cohort uses patient-restricted permutations and paired genus comparisons. The endpoint definition, model specification, multiplicity families, seeds, and interpretation limits are documented in [STATISTICAL_DECISION_RULES.md](docs/STATISTICAL_DECISION_RULES.md).
+
+The analysis was not prospectively registered. The primary model omits tobacco exposure because the available data contain only one exposed child, with no exposed child in the sinusitis-associated group; this produces separation and does not support a finite conventional coefficient. The package reports this support limitation and a restricted sensitivity analysis. Viral count is measured concurrently and is used only in a sensitivity model.
+
+## Expected resources
+
+After dependencies are installed, the default run is expected to take under 30 minutes on a recent laptop, excluding network transfer. Peak memory is expected to remain below 8 GB, and downloaded inputs plus generated outputs should require less than 2 GB of disk space. Bootstrap and permutation stages dominate runtime; actual time varies with CPU and network speed.
+
+## Citation
+
+Please cite the exact archived software version and the associated study using the metadata in [CITATION.cff](CITATION.cff).

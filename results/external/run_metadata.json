@@ -1,0 +1,37 @@
+{
+  "seed": 20261020,
+  "permutations": 9999,
+  "python": "3.13.7",
+  "numpy": "2.4.2",
+  "pandas": "3.0.0",
+  "scipy": "1.17.1",
+  "n_genus_columns": 79,
+  "source_duplicate_genus_rows": 112,
+  "checks": {
+    "metadata_unique": true,
+    "complete_pairs": true,
+    "patient_group_constant": true,
+    "input_abundances_nonnegative": true,
+    "explicit_projection_matches": true,
+    "all_permutations_unique_and_label_changing": true,
+    "within_pair_swaps_verified": true,
+    "group_sizes_preserved": true,
+    "classification_30_boundary": true,
+    "classification_unknown_mixed": true,
+    "classification_single_anaerobe": true,
+    "paired_rows": 27,
+    "patient_genus_differences": 252
+  },
+  "clinical_label_full_names": {
+    "HP": "hyperplasia group",
+    "SOM": "secretory otitis media"
+  },
+  "clinical_label_source": "https://doi.org/10.1128/mSystems.00169-18; source Table 1 and Subjects and Sample collection",
+  "inputs": {
+    "data/processed/prjna422760_sample_metadata.tsv": "1e293196699799fe992846ce353511f29e52f49e4d995f148a5274fd99274d2d",
+    "data/processed/prjna422760_genus_abundance.tsv": "fa6b3e181b7aa780e8318bf1e66270f44f39aa0e0033536a809d300413fb6961"
+  },
+  "source_workbook_sha256": "7c8aa33043e31d4c7de701ae0c4aa6c4de5d81a6b93055a26b39b12e5f5694c4",
+  "script_sha256": "538c4a52a1c9c68fb69b96bfe11e28baff3744f738a781e6a8214b18bfa42f55",
+  "classifier_sha256": "4de88c43a36f234b111c5214b2c77a85c61a7ddea6059c60de5d50efb44a2adb"
+}

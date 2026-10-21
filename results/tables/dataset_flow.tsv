@@ -1,6 +1,0 @@
-step	flow_stage	datasets	independent_participants	profiles_or_runs	status	rationale
-1	Public pediatric airway or ENT datasets screened	11			Screened	Public access, pediatric relevance, airway or ENT sampling, and label availability were reviewed.
-2	Primary endpoint cohort retained	1	58	323	Analyzed	URI and sinusitis annotations, child identifiers, and selected clinical covariates were available.
-3	Secondary pediatric ENT cohort retained	1	28	56	Analyzed descriptively	Paired adenoid and tonsil labels plus HP/SOM group assignment were confirmed from database records and the source article supplementary files.
-4	Label-insufficient pediatric ENT cohort not analyzed	1		75	Not analyzed	Sample-to-group AH/AR/control mapping could not be confirmed from public SRA, BioSample, or static article materials.
-5	Adjacent-control or metadata-only cohorts not used for main claims	8			Not analyzed for main claims	Age, endpoint, sampling site, modality, or clinical-label differences made them unsuitable for the primary clinical question.

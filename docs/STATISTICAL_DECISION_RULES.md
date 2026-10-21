@@ -1,31 +1,17 @@
-# Statistical decision rules
+# Statistical methods and decision rules
 
-## Dominant-genus state assignment
+This is a retrospective secondary analysis of two public 16S rRNA datasets. It was not prospectively preregistered. The primary contrast relates a profile's Moraxella dominance to the child's source-defined URI/Sinusitis follow-up group; it does not estimate future progression risk. The eligible primary set comprises 323 repeated profiles from 45 children; 31 profiles from 13 children without the binary group are excluded from 354 released profiles/58 children.
 
-Samples were assigned to a dominant-genus state when the most abundant genus reached at least 30% relative abundance. The main sensitivity analysis repeated the Moraxella-dominant endpoint association at 25%, 30%, and 50% thresholds.
+The dominant genus is the single largest genus at an inclusive 30% abundance threshold. Threshold sensitivities use 25%, 30% and 50%. Ties are flagged and resolved lexicographically. Unknown top genera and maxima below the threshold are mixed. Anaerobic genera are classified individually, without pooling their abundance to cross a threshold. Primary genus relative abundances are derived from the source OTU count table; surgical percentages retain the published denominator and are not renormalized. The duplicate Fusobacterium rows in the surgical supplement are summed within sample.
 
-## Primary endpoint analysis
+The primary logistic model adjusts for season and baseline daycare, with CR1 child-cluster covariance and t_(G−1) inference. A tobacco covariate was omitted after diagnostic assessment because only one URI-group child (12 profiles) had recorded exposure, producing separation. A restriction excluding that child is provided. Viral count is a contemporaneous sensitivity covariate. Equal-child weighting and earliest eligible profiles assess sampling dependence; earliest eligible does not mean pre-illness. The unadjusted independent child-burden model uses a 25-percentage-point exposure increment and t44 inference. All except the focal primary model are exploratory analyses; raw sensitivity P values do not constitute separate confirmatory claims.
 
-The primary endpoint cohort was `PRJEB35160`. The endpoint comparison used URI profiles and sinusitis-associated profiles linked to child identifiers. The main exposure was a Moraxella-dominant nasopharyngeal profile.
+Whole-child resampling uses seed 20261020 and 2,000 draws. Invalid fits are reported rather than silently replaced. Adjusted percentile intervals condition on successful fits; crude proportions use all draws. Leave-one-child-out ranges are influence summaries, not confidence intervals. Standardized proportions describe group membership under exposure coding and are not incidence risks.
 
-The main reported estimates were:
+Genus models use one six-test Benjamini–Hochberg (BH) family. Threshold sensitivities use one three-test family. Primary community analyses use mean eligible OTU composition per independent child, Bray–Curtis distances and 9,999 permutations. Dispersion is examined separately. Labels constant within children are never tested by within-child permutations.
 
-- profile-level risk ratio;
-- covariate-adjusted logistic regression odds ratio;
-- child-cluster bootstrap risk ratio;
-- leave-one-child-out adjusted odds ratio range;
-- child-level Moraxella-dominant burden.
+The surgical cohort comprises 56 profiles from 28 paired patients (14 HP and 14 SOM; source-reported age 15–65 months). Tissue PERMANOVA includes patient effects and within-patient label exchange. HP/SOM comparisons use independent patients separately within tissue. Permutations exclude the observed allocation and record 9,999 distinct label-changing allocations. Seed is 20261020. Dispersion uses Lingoes-corrected coordinates retaining all positive axes. Community and dispersion comparisons each have a three-test BH family.
 
-The adjusted model included season, daycare attendance, household tobacco exposure, and viral burden when these variables were available in released metadata.
+Paired genus effects are medians of patient-specific tonsil-minus-adenoid differences. Two-sided Wilcoxon signed-rank tests omit zero differences, use a tie-adjusted normal approximation, and omit continuity correction. Differences are rounded to 12 decimal percentage points before ranking to prevent floating-point tie artifacts. Nine selected genera in all, HP and SOM patients form one 27-test BH family. Eighteen independent group-genus comparisons form a separate BH family. These overlapping descriptive strata do not provide an external sinusitis validation endpoint.
 
-## Multiplicity and uncertainty
-
-False-discovery rates were calculated with Benjamini-Hochberg adjustment for families of related tests. Effect estimates are reported with confidence intervals where applicable. Genus-level abundance analyses are interpreted as supportive context unless they survive multiplicity correction.
-
-## Repeated sampling
-
-Repeated profiles increase the number of microbiome observations but not the number of independent children. Child-cluster bootstrap, leave-one-child-out analysis, and child-level burden summaries were therefore used to define the interpretation boundary of the profile-level association.
-
-## External anatomical-context cohort
-
-`PRJNA422760` was used descriptively because its clinical indication and sampling site differed from the primary sinusitis endpoint cohort. It was not used as direct endpoint validation.
+Reported main tables round model ORs and confidence limits to two decimals and P values to the displayed precision. Machine-readable analysis outputs retain precision. The source-defined initial age field is distinct from enrollment eligibility and exact visit age; unidentifiable episode counts and temporal ordering are not reconstructed by assumption.

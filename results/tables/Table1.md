@@ -1,0 +1,11 @@
+| Characteristic | PRJEB35160: URI group | PRJEB35160: Sinusitis group | PRJNA422760: anatomical cohort |
+| --- | --- | --- | --- |
+| Children | 26 | 19 | 28; 14 HP and 14 SOM |
+| Eligible sequencing profiles | 180 | 143 | 56; one adenoid and one tonsil per child |
+| Profiles per child, median (range) | 5.5 (1–21) | 7 (3–13) | 2 (2–2) |
+| Released initial age / observed age | Initial integer field 4–6 years | Initial integer field 4–6 years | Observed age 15–65 months (source Table 1) |
+| Baseline daycare, children | 20/26 | 16/19 | Not used in anatomical analyses |
+| Household tobacco exposure, children | 1/26 | 0/19 | Not used in anatomical analyses |
+| Moraxella-dominant profile fraction per child, median | 0.455 | 0.571 | Described by tissue |
+
+The primary source object contains 354 profiles/58 children; 31 profiles/13 children without the binary outcome were excluded. Baseline age is distinct from enrollment eligibility (48–96 months) and exact age at sampling. External ages are reported in Table 1 of doi:10.1128/mSystems.00169-18; exact individual ages are not inferred. HP, hyperplasia; SOM, secretory otitis media; URI, upper respiratory infection.

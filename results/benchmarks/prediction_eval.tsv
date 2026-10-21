@@ -1,2 +1,0 @@
-dataset_id	split_or_cohort	auc	calibration_slope	brier	n	analysis_status
-PRJEB35160	child_level_if_used					not_primary_claim

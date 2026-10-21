@@ -1,0 +1,2 @@
+model	exposure	covariates	effect_type	effect	ci_lower	ci_upper	pvalue	n_profiles	n_children	positive_profiles	positive_children	reference_df	covariance	weighting	rank	n_parameters	condition_number	converged	fitted_min	fitted_max	covariance_min_eigenvalue	max_abs_coefficient	warnings
+child_burden_per_25pct	burden_25pct		odds_ratio	1.5869370843139678	0.8996635865745316	2.7992344551362884	0.10815732854463032	NA	45	NA	19	44	model_based_child_independent	equal_observation	2	2	5.88063846508445	True	0.20823635877433627	0.6251894547386186	0.013576207726192155	1.3355891396619723	

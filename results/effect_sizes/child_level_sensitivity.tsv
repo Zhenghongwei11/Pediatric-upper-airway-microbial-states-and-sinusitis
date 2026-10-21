@@ -1,4 +1,0 @@
-claim_id	dataset_id	outcome	model	exposure	effect_type	effect	ci_lower	ci_upper	pvalue	fdr	n	analysis_status	n_children
-C1	PRJEB35160	Child-level ever-sinusitis status	child-level logistic regression, any Moraxella-dominant profile	any_moraxella_dominantTRUE	odds_ratio	35145714.393	0	Inf	0.9939	0.9939	45	unstable_separation_diagnostic	45
-C1	PRJEB35160	Child-level ever-sinusitis status	child-level logistic regression per 25 percentage-point Moraxella-dominant profile fraction	moraxella_fraction_25pct	odds_ratio	1.587	0.914	2.756	0.101	0.3031	45	estimated	45
-C1	PRJEB35160	Child-level ever-sinusitis status	child-level logistic regression per 25 percentage-point cluster I profile fraction	cluster_i_fraction_25pct	odds_ratio	1.113	0.609	2.034	0.7272	0.9939	45	estimated	45

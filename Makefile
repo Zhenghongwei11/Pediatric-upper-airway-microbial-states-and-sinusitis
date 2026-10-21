@@ -1,33 +1,18 @@
+.NOTPARALLEL:
 PYTHON ?= python3
-
-.PHONY: setup metadata processed external-labels primary transfer state-transfer figures reproduce clean-outputs
-
-setup:
-	mkdir -p data/raw/metadata data/processed data/references/external_labels data/references/sinusitis_microbiome docs plots/diagnostic/pdf plots/diagnostic/png plots/publication/pdf plots/publication/png results/benchmarks results/effect_sizes results/figures results/primary results/recon results/replication results/tables
-
-metadata: setup
-	$(PYTHON) scripts/acquire_metadata.py
-
-processed: setup
-	$(PYTHON) scripts/acquire_processed_artifacts.py
-
-external-labels: metadata
-	$(PYTHON) scripts/acquire_external_labels.py
-
-primary: metadata processed
-	Rscript scripts/analyze_primary_prjeb35160.R
-
-transfer: external-labels
-	$(PYTHON) scripts/analyze_prjna422760_transfer.py
-
-state-transfer: transfer primary
-	$(PYTHON) scripts/analyze_state_taxonomy_transportability.py
-
-figures: primary state-transfer
+.PHONY: all acquire analyze figures tables check
+all: acquire analyze figures tables check
+acquire:
+	$(PYTHON) scripts/acquire_public_inputs.py
+analyze:
+	Rscript scripts/export_primary_inputs.R
+	$(PYTHON) scripts/analyze_primary.py
+	Rscript scripts/analyze_primary_community.R
+	$(PYTHON) scripts/analyze_external_cohort.py
+figures:
 	$(PYTHON) scripts/generate_publication_figures.py
-
-reproduce:
-	bash scripts/reproduce_one_click.sh
-
-clean-outputs:
-	rm -rf data/raw/metadata data/processed data/references/external_labels data/references/sinusitis_microbiome plots/diagnostic plots/publication results
+tables:
+	$(PYTHON) scripts/main_tables.py
+	$(PYTHON) scripts/build_supplementary_tables.py
+check:
+	$(PYTHON) scripts/check_results.py

@@ -1,5 +1,0 @@
-claim_id	dataset_id	outcome	model	exposure	effect_type	effect	ci_lower	ci_upper	pvalue	fdr	n	analysis_status
-C1	PRJEB35160	URI-to-acute-sinusitis progression	sample-level risk ratio	Cluster I ecological state	risk_ratio	1.156	0.906	1.475	0.2607	0.3476	323	estimated
-C1	PRJEB35160	URI-to-acute-sinusitis progression	sample-level risk ratio	Moraxella-dominant state	risk_ratio	1.421	1.104	1.829	0.007089	0.01895	323	estimated
-C1	PRJEB35160	URI-to-acute-sinusitis progression	adjusted logistic regression	cluster_iTRUE	odds_ratio	1.245	0.776	1.998	0.3641	0.3641	323	estimated
-C1	PRJEB35160	URI-to-acute-sinusitis progression	adjusted logistic regression	moraxella_dominantTRUE	odds_ratio	1.878	1.167	3.024	0.009477	0.01895	323	estimated

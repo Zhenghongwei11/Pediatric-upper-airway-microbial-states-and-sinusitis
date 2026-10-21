@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "Pediatric upper-airway microbial states and sinusitis"
-message: "If you use this repository, please cite the archived release and the associated article."
+message: "If you use this repository, please cite the archived software version and the associated article."
 type: software
 authors:
   - family-names: Dai
@@ -9,7 +9,7 @@ authors:
     given-names: Shaomei
   - family-names: Zheng
     given-names: Hongwei
-version: 1.0.0
-date-released: "2026-05-24"
+version: 1.1.0
+date-released: "2026-10-21"
 repository-code: "https://github.com/Zhenghongwei11/Pediatric-upper-airway-microbial-states-and-sinusitis"
 license: MIT

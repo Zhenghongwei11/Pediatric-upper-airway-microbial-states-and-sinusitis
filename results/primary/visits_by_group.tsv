@@ -1,0 +1,12 @@
+outcome_group	Visit.Type_Lab	n_profiles	n_children
+Sinusitis	Sick - 30 days	5	5
+Sinusitis	Sick - Acute	35	12
+Sinusitis	Sick - Acute - Sinusitis	15	14
+Sinusitis	Sick - Recovery	32	14
+Sinusitis	Surveillance/Entry	45	19
+Sinusitis	sinusitis 2nd sample	11	11
+URI	Sick - 30 days	3	3
+URI	Sick - Acute	63	24
+URI	Sick - Recovery	47	18
+URI	Surveillance/Entry	65	24
+URI	sinusitis 2nd sample	2	2

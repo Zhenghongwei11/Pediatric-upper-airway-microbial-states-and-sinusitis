@@ -1,2 +1,0 @@
-dataset_id	role	n_samples	n_independent_patients	usable_label	primary_readout	decision
-PRJNA422760	phenotype_transfer	56	28	paired adenoid/tonsil tissue and HP/SOM group	genus-level ecological state transfer	include_descriptive_external_transfer

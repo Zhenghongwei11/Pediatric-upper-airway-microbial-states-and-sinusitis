@@ -1,0 +1,355 @@
+sample_id	child_id	outcome_group	StudySubGroup	healthy_vs_sick	Visit.Type_Lab	Surv_Sick_Recov	Sinusitis_Samp	Date	included	exclusion_reason
+2037_003	2037	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-02-25	False	no_URI_or_Sinusitis_followup_group
+1028_017	1028	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-12-10	True	included
+1041_002	1041	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-09-18	True	included
+1028_016	1028	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-11-20	True	included
+1062_010	1062	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-09-25	True	included
+2025_013	2025	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-04-23	True	included
+1062_001	1062	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-09-30	True	included
+2052_004	2052	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2014-01-07	True	included
+1027_003	1027	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-04-16	False	no_URI_or_Sinusitis_followup_group
+1045_013	1045	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-03-12	True	included
+1041_001	1041	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-04-22	True	included
+1004_002	1004	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-04-29	True	included
+1021_004	1021	Sinusitis	Sinusitis	Sick	Sick - 30 days	Sick	No	2013-01-28	True	included
+1062_005	1062	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-12-18	True	included
+2044_004	2044	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-03-11	True	included
+1021_003	1021	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2012-12-14	True	included
+1041_003	1041	URI	URI3	Sick	Sick - Acute	Sick	No	2013-11-08	True	included
+1002_002	1002	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-04-25	True	included
+1004_009	1004	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-12-19	True	included
+2025_005	2025	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-12-10	True	included
+1003_005	1003	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-12-11	True	included
+2025_010	2025	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-02-13	True	included
+2040_006	2040	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-03-26	True	included
+2082_003	2082	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-04-24	True	included
+1012_010	1012	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-02-18	True	included
+2011_004	2011	URI	URI1	Sick	Sick - Acute	Sick	No	2013-02-01	True	included
+2002_007	2002	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-09-14	True	included
+1028_006	1028	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-03-13	True	included
+1009_003	1009	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-09-10	True	included
+1038_005	1038	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2013-09-11	True	included
+1045_005	1045	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-10-11	True	included
+1053_003	1053	URI	URI1	Sick	Sick - Acute	Sick	No	2013-09-20	True	included
+1002_001	1002	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-04-18	True	included
+1045_009	1045	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-01-09	True	included
+1028_014	1028	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-10-22	True	included
+1008_001	1008	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2012-06-04	True	included
+1046_006	1046	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-11-05	True	included
+1053_006	1053	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2014-02-26	True	included
+2076_007	2076	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-12-05	True	included
+1046_005	1046	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-10-23	True	included
+2052_008	2052	URI	URI3	Sick	Sick - Recovery	Recovery	No	2014-03-28	True	included
+1024_008	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-03-06	True	included
+1027_001	1027	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-12-07	False	no_URI_or_Sinusitis_followup_group
+1045_011	1045	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2014-01-31	True	included
+2095_007	2095	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2015-02-06	True	included
+1028_015	1028	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-11-04	True	included
+2025_012	2025	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-03-18	True	included
+1062_003	1062	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2013-10-22	True	included
+2002_009	2002	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2012-10-08	True	included
+2035_018	2035	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-07-08	True	included
+2074_003	2074	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2014-02-03	True	included
+2094_003	2094	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2014-09-24	True	included
+1009_013	1009	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-05-08	True	included
+2035_016	2035	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-05-31	True	included
+2002_004	2002	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-05-15	True	included
+1054_012	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2014-01-29	True	included
+1024_007	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-02-20	True	included
+2074_008	2074	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2014-10-30	True	included
+1045_012	1045	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-02-13	True	included
+1054_007	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-11-20	True	included
+1054_005	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-09-25	True	included
+1012_006	1012	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-11-01	True	included
+1024_013	1024	Sinusitis	Sinusitis	Sick	Sick - 30 days	Sick	No	2013-07-11	True	included
+2009_009	2009	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-02-13	True	included
+2094_007	2094	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2015-02-06	True	included
+2038_019	2038	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-11-05	True	included
+1026_010	1026	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-09-18	True	included
+1012_005	1012	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-10-09	True	included
+1053_005	1053	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-12-30	True	included
+2065_009	2065	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2014-03-25	True	included
+2038_016	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-07-19	True	included
+1041_007	1041	URI	URI3	Sick	sinusitis 2nd sample	Sick	No	2014-01-10	True	included
+1009_010	1009	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-03-04	True	included
+2035_001	2035	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-09-27	True	included
+1008_008	1008	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-12-06	True	included
+1004_007	1004	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-11-16	True	included
+1002_009	1002	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-08-27	True	included
+2035_006	2035	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-12-19	True	included
+1045_002	1045	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-07-12	True	included
+1002_004	1002	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-06-12	True	included
+2017_008	2017	URI	URI3	Sick	Sick - Acute	Sick	No	2013-02-07	True	included
+2038_001	2038	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-10-16	True	included
+1003_001	1003	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-04-23	True	included
+1008_009	1008	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2012-12-21	True	included
+2002_011	2002	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-11-08	True	included
+1009_006	1009	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-10-29	True	included
+2095_005	2095	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-12-02	True	included
+2024_004	2024	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-02-26	False	no_URI_or_Sinusitis_followup_group
+2035_002	2035	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-10-01	True	included
+1024_011	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-04-29	True	included
+2038_011	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-03-21	True	included
+1026_009	1026	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-05-09	True	included
+1054_011	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2014-01-09	True	included
+2015_002	2015	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-09-19	False	no_URI_or_Sinusitis_followup_group
+1092_002	1092	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2014-12-10	True	included
+2002_010	2002	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-10-30	True	included
+1046_009	1046	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2014-01-14	True	included
+2025_009	2025	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-02-04	True	included
+2065_012	2065	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-09-11	True	included
+2044_006	2044	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-05-01	True	included
+2045_004	2045	URI	URI1	Sick	Sick - Acute	Sick	No	2013-12-03	True	included
+1026_007	1026	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2013-03-20	True	included
+2015_004	2015	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-02-13	False	no_URI_or_Sinusitis_followup_group
+1024_002	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-11-12	True	included
+1038_006	1038	URI	URI2	Sick	Sick - Acute	Sick	No	2013-10-14	True	included
+1054_013	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2014-02-07	True	included
+1046_010	1046	URI	URI4plus	Sick	Sick - Acute	Sick	No	2014-02-13	True	included
+2015_003	2015	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-12-13	False	no_URI_or_Sinusitis_followup_group
+2002_006	2002	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-08-30	True	included
+1027_002	1027	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-02-12	False	no_URI_or_Sinusitis_followup_group
+1062_002	1062	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2013-10-11	True	included
+1045_004	1045	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-09-29	True	included
+1008_004	1008	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-08-20	True	included
+1024_004	1024	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2012-12-21	True	included
+2052_009	2052	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2014-04-10	True	included
+1024_005	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-01-16	True	included
+1012_013	1012	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-05-28	True	included
+2037_005	2037	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-06-05	False	no_URI_or_Sinusitis_followup_group
+2038_007	2038	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-01-18	True	included
+2082_002	2082	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-03-05	True	included
+2073_007	2073	Sinusitis	Sinusitis	Sick	Sick - 30 days	Sick	No	2014-11-25	True	included
+2074_004	2074	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-02-14	True	included
+2095_004	2095	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-10-08	True	included
+2095_002	2095	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-08-27	True	included
+2034_004	2034	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-02-15	True	included
+2073_006	2073	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2014-10-09	True	included
+1008_010	1008	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-01-07	True	included
+2044_003	2044	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-02-25	True	included
+1054_009	1054	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-12-18	True	included
+1045_007	1045	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-11-27	True	included
+1054_021	1054	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2014-06-05	True	included
+2002_012	2002	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2012-12-05	True	included
+1012_001	1012	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-06-22	True	included
+2028_002	2028	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-12-18	False	no_URI_or_Sinusitis_followup_group
+1008_007	1008	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-11-26	True	included
+2082_006	2082	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-11-21	True	included
+1054_001	1054	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-07-31	True	included
+1012_009	1012	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-12-03	True	included
+2052_007	2052	URI	URI3	Sick	Sick - Acute	Sick	No	2014-03-17	True	included
+2052_001	2052	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-04-22	True	included
+1009_009	1009	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-02-18	True	included
+2003_008	2003	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2013-02-28	True	included
+2025_011	2025	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-02-25	True	included
+1002_011	1002	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-11-27	True	included
+1008_002	1008	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-07-22	True	included
+2016_003	2016	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-01-21	False	no_URI_or_Sinusitis_followup_group
+2095_001	2095	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-05-20	True	included
+2038_002	2038	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-11-23	True	included
+1004_004	1004	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-08-20	True	included
+1054_014	1054	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2014-02-28	True	included
+2073_001	2073	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-11-19	True	included
+1045_014	1045	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-05-15	True	included
+2017_010	2017	URI	URI3	Sick	Sick - 30 days	Sick	No	2013-03-21	True	included
+2076_005	2076	Sinusitis	Sinusitis	Sick	Sick - 30 days	Sick	No	2014-05-20	True	included
+1062_009	1062	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-06-03	True	included
+2034_005	2034	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-04-24	True	included
+1062_006	1062	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-03-19	True	included
+2052_005	2052	URI	URI3	Sick	Sick - Acute	Sick	No	2014-01-31	True	included
+2038_003	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-12-06	True	included
+2035_015	2035	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-04-17	True	included
+2028_001	2028	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-09-13	False	no_URI_or_Sinusitis_followup_group
+1008_012	1008	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-03-22	True	included
+2017_009	2017	URI	URI3	Sick	Sick - Recovery	Recovery	No	2013-02-18	True	included
+2016_005	2016	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-03-25	False	no_URI_or_Sinusitis_followup_group
+1092_001	1092	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-09-11	True	included
+2038_005	2038	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-12-27	True	included
+2038_006	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-01-04	True	included
+1004_010	1004	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-12-26	True	included
+1009_004	1009	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2012-10-01	True	included
+1024_006	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-02-07	True	included
+2007_003	2007	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-01-02	False	no_URI_or_Sinusitis_followup_group
+1028_011	1028	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-05-29	True	included
+1028_002	1028	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2013-01-14	True	included
+2016_001	2016	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-05-21	False	no_URI_or_Sinusitis_followup_group
+2052_006	2052	URI	URI3	Sick	sinusitis 2nd sample	Sick	No	2014-02-04	True	included
+1003_007	1003	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-01-17	True	included
+1038_009	1038	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2014-02-25	True	included
+2044_012	2044	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-01-06	True	included
+1003_009	1003	URI	URI4plus	Sick	Sick - 30 days	Sick	No	2013-04-11	True	included
+2017_011	2017	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-04-04	True	included
+2073_005	2073	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2014-09-25	True	included
+2044_010	2044	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-09-24	True	included
+1002_012	1002	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-12-13	True	included
+2073_003	2073	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-04-22	True	included
+1041_009	1041	URI	URI3	Sick	Sick - Recovery	Recovery	No	2014-03-26	True	included
+1054_002	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-08-21	True	included
+1004_006	1004	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-09-06	True	included
+1024_003	1024	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2012-12-13	True	included
+1041_006	1041	URI	URI3	Sick	Sick - Acute	Sick	No	2014-01-06	True	included
+1009_008	1009	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-02-04	True	included
+1054_019	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2014-05-05	True	included
+2094_006	2094	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2015-01-28	True	included
+2076_003	2076	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2014-03-31	True	included
+1053_004	1053	URI	URI1	Sick	Sick - Recovery	Recovery	No	2013-10-03	True	included
+2035_003	2035	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-10-16	True	included
+1028_009	1028	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-04-18	True	included
+2007_001	2007	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-04-24	False	no_URI_or_Sinusitis_followup_group
+1012_004	1012	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-09-25	True	included
+1012_011	1012	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-03-20	True	included
+1028_010	1028	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-05-17	True	included
+2024_003	2024	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-01-18	False	no_URI_or_Sinusitis_followup_group
+1009_001	1009	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2012-06-11	True	included
+1028_007	1028	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-03-25	True	included
+2007_002	2007	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-10-23	False	no_URI_or_Sinusitis_followup_group
+2065_007	2065	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2014-01-23	True	included
+1054_016	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2014-03-25	True	included
+2073_004	2073	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-08-29	True	included
+2045_003	2045	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-09-24	True	included
+1028_013	1028	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-09-24	True	included
+2042_007	2042	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-03-18	True	included
+1054_008	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-12-04	True	included
+2094_002	2094	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-08-27	True	included
+2044_013	2044	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-01-21	True	included
+1054_004	1054	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-09-18	True	included
+2073_002	2073	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-02-18	True	included
+1028_004	1028	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2013-02-18	True	included
+1010_007	1010	URI	URI2	Sick	Sick - 30 days	Sick	No	2013-04-20	True	included
+1002_006	1002	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-07-17	True	included
+2024_002	2024	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-10-16	False	no_URI_or_Sinusitis_followup_group
+1004_013	1004	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-02-07	True	included
+1008_006	1008	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2012-09-27	True	included
+2035_009	2035	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-01-23	True	included
+2065_004	2065	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-10-24	True	included
+1054_018	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2014-04-28	True	included
+1036_001	1036	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-03-04	False	no_URI_or_Sinusitis_followup_group
+2008_003	2008	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-12-13	False	no_URI_or_Sinusitis_followup_group
+1009_012	1009	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-04-23	True	included
+2046_004	2046	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2014-01-03	False	no_URI_or_Sinusitis_followup_group
+1062_008	1062	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-05-08	True	included
+2043_004	2043	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-12-27	False	no_URI_or_Sinusitis_followup_group
+1041_005	1041	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-12-11	True	included
+2012_009	2012	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-04-09	True	included
+1002_007	1002	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-07-24	True	included
+1004_011	1004	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-01-10	True	included
+2011_005	2011	URI	URI1	Sick	Sick - Recovery	Recovery	No	2013-02-14	True	included
+1036_004	1036	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-12-02	False	no_URI_or_Sinusitis_followup_group
+1004_001	1004	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-04-24	True	included
+2025_008	2025	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-01-23	True	included
+2094_005	2094	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-12-02	True	included
+2065_005	2065	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-01-02	True	included
+2074_005	2074	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-03-12	True	included
+1046_003	1046	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-09-04	True	included
+1054_020	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2014-05-16	True	included
+1002_014	1002	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-03-06	True	included
+2040_007	2040	URI	URI3	Sick	Sick - Acute	Sick	No	2013-04-15	True	included
+2052_003	2052	URI	URI3	Sick	Sick - Recovery	Recovery	No	2013-06-14	True	included
+1002_003	1002	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-05-16	True	included
+1045_006	1045	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-11-05	True	included
+2038_013	2038	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-05-31	True	included
+2045_006	2045	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2014-01-03	True	included
+1024_009	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-03-25	True	included
+1041_004	1041	URI	URI3	Sick	Sick - Recovery	Recovery	No	2013-11-20	True	included
+1041_008	1041	URI	URI3	Sick	Sick - Acute	Sick	No	2014-03-12	True	included
+2035_014	2035	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-03-21	True	included
+2002_005	2002	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2012-08-16	True	included
+1003_004	1003	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-09-17	True	included
+2040_008	2040	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2013-05-20	True	included
+2002_013	2002	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-01-28	True	included
+1054_017	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2014-04-14	True	included
+1004_008	1004	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-12-07	True	included
+2095_003	2095	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2014-09-24	True	included
+2074_009	2074	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-11-11	True	included
+1054_010	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-12-27	True	included
+1009_011	1009	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-04-15	True	included
+1021_005	1021	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-02-27	True	included
+2038_014	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-06-10	True	included
+2035_007	2035	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-12-27	True	included
+2012_007	2012	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2013-02-04	True	included
+1012_012	1012	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-04-08	True	included
+1004_014	1004	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-02-22	True	included
+1045_003	1045	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-07-24	True	included
+1038_007	1038	URI	URI2	Sick	Sick - Recovery	Recovery	No	2013-10-29	True	included
+1008_003	1008	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-08-03	True	included
+2012_006	2012	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2013-01-28	True	included
+2035_005	2035	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-12-06	True	included
+1003_008	1003	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-03-01	True	included
+2042_002	2042	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-12-18	True	included
+2065_002	2065	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-10-09	True	included
+1027_004	1027	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-09-25	False	no_URI_or_Sinusitis_followup_group
+1024_012	1024	Sinusitis	Sinusitis	Sick	Sick - Acute	Sick	No	2013-05-22	True	included
+2025_007	2025	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-01-02	True	included
+2019_003	2019	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-01-10	False	no_URI_or_Sinusitis_followup_group
+1012_003	1012	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2012-08-20	True	included
+2008_001	2008	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-05-02	False	no_URI_or_Sinusitis_followup_group
+2038_018	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-09-23	True	included
+1026_005	1026	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-02-25	True	included
+2065_006	2065	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2014-01-13	True	included
+2031_003	2031	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-02-25	False	no_URI_or_Sinusitis_followup_group
+1054_015	1054	URI	URI4plus	Sick	Sick - Acute	Sick	No	2014-03-12	True	included
+2038_012	2038	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-04-17	True	included
+2038_008	2038	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-02-04	True	included
+2046_003	2046	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-10-14	False	no_URI_or_Sinusitis_followup_group
+1012_002	1012	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-08-08	True	included
+1028_008	1028	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-04-03	True	included
+2035_008	2035	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-01-04	True	included
+2095_006	2095	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2015-01-28	True	included
+2011_006	2011	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-03-25	True	included
+2035_022	2035	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-11-05	True	included
+1054_003	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-09-04	True	included
+2074_001	2074	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-11-21	True	included
+1045_010	1045	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2014-01-23	True	included
+1046_007	1046	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-12-05	True	included
+1003_006	1003	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-01-04	True	included
+2035_004	2035	URI	URI4plus	Sick	Sick - Acute	Sick	No	2012-11-23	True	included
+1002_013	1002	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-01-02	True	included
+2038_010	2038	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-03-04	True	included
+1008_014	1008	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-04-17	True	included
+2094_004	2094	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2014-10-08	True	included
+1045_008	1045	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-12-12	True	included
+2042_004	2042	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-02-14	True	included
+2008_002	2008	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2012-09-27	False	no_URI_or_Sinusitis_followup_group
+1062_004	1062	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-11-08	True	included
+1092_003	1092	Sinusitis	Sinusitis	Sick	sinusitis 2nd sample	Sick	No	2014-12-21	True	included
+2065_003	2065	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-10-21	True	included
+2052_002	2052	URI	URI3	Sick	Sick - Acute	Sick	No	2013-06-03	True	included
+1021_006	1021	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-06-07	True	included
+1054_006	1054	URI	URI4plus	Sick	Sick - Recovery	Recovery	No	2013-10-09	True	included
+2012_008	2012	Sinusitis	Sinusitis	Sick	Sick - 30 days	Sick	No	2013-03-12	True	included
+2019_005	2019	NA	URI0	Healthy	Surveillance/Entry	Surveillance	No	2013-05-24	False	no_URI_or_Sinusitis_followup_group
+1024_014	1024	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2013-10-17	True	included
+2076_006	2076	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-09-18	True	included
+1024_010	1024	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2013-04-18	True	included
+1002_010	1002	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2012-09-27	True	included
+2074_006	2074	Sinusitis	Sinusitis	Sick	Surveillance/Entry	Surveillance	No	2014-04-15	True	included
+2025_014	2025	URI	URI4plus	Sick	Sick - Acute	Sick	No	2013-06-10	True	included
+2000_003	2000	URI	URI2	Sick	Sick - Acute	Sick	No	2012-05-11	True	included
+1038_002	1038	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2013-04-16	True	included
+2009_004	2009	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2012-10-25	True	included
+1026_003	1026	Sinusitis	Sinusitis	Sick	Sick - Recovery	Recovery	No	2012-12-13	True	included
+2022_007	2022	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2013-04-12	True	included
+1053_007	1053	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2014-04-21	True	included
+2006_004	2006	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2012-09-19	True	included
+2017_005	2017	URI	URI3	Sick	Sick - Acute	Sick	No	2012-11-27	True	included
+2009_002	2009	URI	URI3	Sick	Sick - Acute	Sick	No	2012-09-13	True	included
+1010_006	1010	URI	URI2	Sick	Sick - Acute	Sick	No	2013-03-11	True	included
+2009_007	2009	URI	URI3	Sick	Sick - Acute	Sick	No	2012-12-13	True	included
+1021_002	1021	Sinusitis	Sinusitis	Sick	Sick - Acute - Sinusitis	Sick	Yes	2012-11-28	True	included
+2022_002	2022	URI	URI2	Sick	Sick - Acute	Sick	No	2012-09-15	True	included
+1000_002	1000	URI	URI3	Sick	Surveillance/Entry	Surveillance	No	2012-04-04	True	included
+2000_008	2000	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2012-12-17	True	included
+2006_001	2006	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2012-04-20	True	included
+2011_002	2011	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2012-10-16	True	included
+1053_001	1053	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-07-29	True	included
+2009_006	2009	URI	URI3	Sick	Sick - Recovery	Recovery	No	2012-11-27	True	included
+1000_005	1000	URI	URI3	Sick	Sick - Acute	Sick	No	2012-05-30	True	included
+1046_004	1046	URI	URI4plus	Sick	Surveillance/Entry	Surveillance	No	2013-09-18	True	included
+2022_005	2022	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2012-12-13	True	included
+2022_004	2022	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2012-11-01	True	included
+2006_005	2006	URI	URI2	Sick	Sick - Acute	Sick	No	2012-09-28	True	included
+2009_005	2009	URI	URI3	Sick	Sick - Acute	Sick	No	2012-11-15	True	included
+2000_001	2000	URI	URI2	Sick	Surveillance/Entry	Surveillance	No	2012-02-21	True	included
+2034_001	2034	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2012-09-25	True	included
+2006_003	2006	URI	URI2	Sick	Sick - Recovery	Recovery	No	2012-07-03	True	included
+2034_003	2034	URI	URI1	Sick	Surveillance/Entry	Surveillance	No	2013-01-02	True	included

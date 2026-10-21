@@ -1,3 +1,0 @@
-method	baseline	metric	status	note
-dominant-genus ecological state	genus relative abundance summary	interpretability_and_effect_size_support	selected_mainline	Local-first and reviewer-readable
-mixed-effects or GEE association	simple logistic regression	dependence-aware_effect_estimate	selected_mainline	Protects against repeated-sample pseudo-replication
