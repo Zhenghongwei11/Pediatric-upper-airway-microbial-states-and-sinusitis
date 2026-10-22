@@ -128,18 +128,18 @@ All 27 preselected paired tests are shown. The signed difference is tonsil minus
 
 ## S6. Community tests and diagnostics
 
-Primary-child and external-patient analyses are presented independently. The primary PERMANOVA uses 45 child-mean compositions; the external cohort has 28 paired patients and 56 samples. PERMANOVA and dispersion tests are both shown.
+Primary-child and external-patient analyses are presented independently. Comparison codes are expanded into descriptive English, while numeric results retain their source values. The primary PERMANOVA uses 45 child-mean compositions; the external cohort has 28 paired patients and 56 samples. PERMANOVA and dispersion tests are both shown.
 
 | Test | Comparison | Independent units | R² | F statistic | Raw P | BH FDR | Permutations |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Primary PERMANOVA_mean_child_composition | followup_outcome_group | 45 children; 323 profiles | 0.03179 | 1.412 | 0.2187 | Not reported | 9999 |
-| Primary PERMDISP_mean_child_composition | followup_outcome_group | 45 children; 323 profiles | NA | 10.03 | 0.0022 | Not reported | 9999 |
-| External PERMANOVA | tissue_paired_all | 28 patients; 56 samples | 0.06331 | 6.507 | 0.0001 | 0.0003 | 9999 |
-| External PERMANOVA | HP_vs_SOM_adenoid | 28 patients; 28 samples | 0.07816 | 2.204 | 0.038 | 0.057 | 9999 |
-| External PERMANOVA | HP_vs_SOM_tonsil | 28 patients; 28 samples | 0.05237 | 1.437 | 0.1854 | 0.1854 | 9999 |
-| External dispersion | tissue_paired_all | 28 patients; 56 samples | — | 4.037 | 0.0528 | 0.0792 | 9999 |
-| External dispersion | HP_vs_SOM_adenoid | 28 patients; 28 samples | — | 7.591 | 0.0095 | 0.0285 | 9999 |
-| External dispersion | HP_vs_SOM_tonsil | 28 patients; 28 samples | — | 0.0001729 | 0.9894 | 0.9894 | 9999 |
+| Primary PERMANOVA (mean child composition) | Follow-up outcome group | 45 children; 323 profiles | 0.03179 | 1.412 | 0.2187 | Not reported | 9999 |
+| Primary PERMDISP (mean child composition) | Follow-up outcome group | 45 children; 323 profiles | NA | 10.03 | 0.0022 | Not reported | 9999 |
+| External PERMANOVA | Adenoid vs tonsil (paired) | 28 patients; 56 samples | 0.06331 | 6.507 | 0.0001 | 0.0003 | 9999 |
+| External PERMANOVA | Hyperplasia vs secretory otitis media (adenoid) | 28 patients; 28 samples | 0.07816 | 2.204 | 0.038 | 0.057 | 9999 |
+| External PERMANOVA | Hyperplasia vs secretory otitis media (tonsil) | 28 patients; 28 samples | 0.05237 | 1.437 | 0.1854 | 0.1854 | 9999 |
+| External dispersion | Adenoid vs tonsil (paired) | 28 patients; 56 samples | — | 4.037 | 0.0528 | 0.0792 | 9999 |
+| External dispersion | Hyperplasia vs secretory otitis media (adenoid) | 28 patients; 28 samples | — | 7.591 | 0.0095 | 0.0285 | 9999 |
+| External dispersion | Hyperplasia vs secretory otitis media (tonsil) | 28 patients; 28 samples | — | 0.0001729 | 0.9894 | 0.9894 | 9999 |
 
 | Primary dispersion diagnostic | Value |
 | --- | --- |

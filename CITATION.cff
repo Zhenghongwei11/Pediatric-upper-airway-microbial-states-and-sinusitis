@@ -9,7 +9,7 @@ authors:
     given-names: Shaomei
   - family-names: Zheng
     given-names: Hongwei
-version: 1.1.0
-date-released: "2026-10-21"
+version: 1.1.1
+date-released: "2026-10-22"
 repository-code: "https://github.com/Zhenghongwei11/Pediatric-upper-airway-microbial-states-and-sinusitis"
 license: MIT

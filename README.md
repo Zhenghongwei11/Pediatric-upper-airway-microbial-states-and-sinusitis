@@ -35,7 +35,7 @@ The R installation script checks the R version and installs `phyloseq` 1.50.0, `
 - `plots/publication/pdf/` and `plots/publication/png/`: Figures 1–5.
 - `docs/FIGURE_PROVENANCE.tsv` and `docs/TABLE_PROVENANCE.tsv`: source-table and script mapping for each figure and table.
 
-Main table display values are rounded for readability; the TSV analysis outputs retain their recorded precision. The supplementary workbook retains the precision available in its source tables.
+Table 1 summarizes sex and released initial age once per independent primary-cohort child, using the model membership and public metadata. Main table display values are rounded for readability; the TSV analysis outputs retain their recorded precision. The supplementary workbook retains the precision available in its source tables.
 
 ## Analysis methods
 

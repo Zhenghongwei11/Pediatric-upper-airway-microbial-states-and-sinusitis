@@ -8,4 +8,4 @@
 | No recorded tobacco exposure, adjusted | 311 / 44 | 1.88 (1.04–3.39) | .037 |
 | Child burden per 25 percentage points, unadjusted | 45 child summaries / 45 | 1.59 (0.90–2.80) | .108 |
 
-Moraxella dominance requires the most abundant genus to be Moraxella at ≥30%. Profile-model intervals use CR1 child-cluster covariance and t_(G−1) inference; the independent child-burden model uses t44 inference. Apart from the focal primary model, rows are exploratory sensitivity analyses with raw P values and no separate confirmatory claim.
+Moraxella dominance requires the most abundant genus to be Moraxella at ≥30%. Profile-model intervals use CR1 child-cluster covariance and t inference with G−1 degrees of freedom; the independent child-burden model uses t inference with 44 degrees of freedom. Apart from the focal primary model, rows are exploratory sensitivity analyses with raw P values and no separate confirmatory claim. OR, odds ratio; CI, confidence interval; G, number of children.

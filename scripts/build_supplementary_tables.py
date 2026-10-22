@@ -50,6 +50,107 @@ ID_FIELDS = {
     "metadata_path", "raw_fastq_downloaded", "clinical_label_full_names",
 }
 
+S6_COMPARISON_LABELS = {
+    "tissue_paired_all": "Adenoid vs tonsil (paired)",
+    "HP_vs_SOM_adenoid": "Hyperplasia vs secretory otitis media (adenoid)",
+    "HP_vs_SOM_tonsil": "Hyperplasia vs secretory otitis media (tonsil)",
+}
+S6_PRIMARY_HEADERS = {
+    "analysis": "Test",
+    "term": "Comparison",
+    "n_children": "Children (n)",
+    "n_profiles": "Profiles (n)",
+    "df": "Degrees of freedom",
+    "r2": "R²",
+    "statistic": "F statistic",
+    "pvalue": "P value",
+    "permutations": "Permutations",
+    "seed": "Random seed",
+    "exchangeability_unit": "Permutation unit",
+    "input": "Composition analyzed",
+    "multiplicity": "Interpretation",
+}
+S6_PRIMARY_VALUE_LABELS = {
+    "analysis": {
+        "PERMANOVA_mean_child_composition": "PERMANOVA (mean child composition)",
+        "PERMDISP_mean_child_composition": "PERMDISP (mean child composition)",
+    },
+    "term": {"followup_outcome_group": "Follow-up outcome group"},
+    "exchangeability_unit": {"independent_child": "Independent child"},
+    "input": {"mean_eligible_OTU_relative_composition_per_child": "Mean eligible OTU relative composition per child"},
+    "multiplicity": {"descriptive_tests_raw_P_no_confirmatory_claim": "Descriptive tests; raw P values; no confirmatory claim"},
+}
+S6_EXTERNAL_COMMON_HEADERS = {
+    "comparison": "Comparison",
+    "metric": "Distance metric",
+    "n_samples": "Samples (n)",
+    "n_patients": "Patients (n)",
+    "seed": "Random seed",
+    "model": "Model",
+    "labels_level0": "Group 1",
+    "labels_level1": "Group 2",
+    "exchangeability": "Permutation scheme",
+    "possible_allocations": "Possible label allocations",
+    "term_df": "Term degrees of freedom",
+    "residual_df": "Residual degrees of freedom",
+    "p_value": "Raw P value",
+    "permutations_requested": "Permutations requested",
+    "permutations_effective": "Permutations completed",
+    "p_bh_3_tests": "BH-adjusted P value (3-test family)",
+}
+S6_EXTERNAL_PERMANOVA_HEADERS = {
+    **S6_EXTERNAL_COMMON_HEADERS,
+    "pseudo_f": "Pseudo-F statistic",
+    "term_ss": "Term sum of squares",
+    "total_ss": "Total sum of squares",
+    "patient_ss": "Patient sum of squares",
+    "residual_ss": "Residual sum of squares",
+    "term_r2_total": "Term R² (total)",
+    "term_partial_r2": "Term partial R²",
+    "unique_label_allocations": "Unique label allocations",
+    "unique_statistic_values": "Unique test-statistic values",
+    "permutations_changing_labels": "Permutations changing labels",
+}
+S6_EXTERNAL_DISPERSION_HEADERS = {
+    **S6_EXTERNAL_COMMON_HEADERS,
+    "statistic_f": "F statistic",
+    "mean_distance_level0": "Mean distance to centroid (group 1)",
+    "mean_distance_level1": "Mean distance to centroid (group 2)",
+    "distance_bias_adjustment": "Distance bias adjustment",
+    "permutation_target": "Permutation target",
+    "lingoes_constant": "Lingoes correction constant",
+    "minimum_original_eigenvalue": "Minimum eigenvalue before correction",
+    "negative_original_eigenvalues": "Negative eigenvalues before correction (n)",
+    "original_negative_to_positive_eigenvalue_mass": "Negative-to-positive eigenvalue mass",
+    "pcoa_axes_retained": "PCoA axes retained",
+}
+S6_EXTERNAL_VALUE_LABELS = {
+    "comparison": S6_COMPARISON_LABELS,
+    "model": {
+        "distance ~ patient + tissue; tissue after patient": "Bray–Curtis distance ~ patient + tissue; test tissue after patient",
+        "distance ~ clinical_group": "Bray–Curtis distance by clinical group",
+    },
+    "labels_level0": {"adenoid": "Adenoid", "HP": "Hyperplasia (HP)"},
+    "labels_level1": {"tonsil": "Tonsil", "SOM": "Secretory otitis media (SOM)"},
+    "distance_bias_adjustment": {"sqrt(n_group/(n_group-1))": "Square-root finite-sample adjustment, √[n/(n−1)]"},
+}
+S6_EXTERNAL_PERMANOVA_VALUE_LABELS = {
+    field: mapping for field, mapping in S6_EXTERNAL_VALUE_LABELS.items()
+    if field in S6_EXTERNAL_PERMANOVA_HEADERS
+}
+S6_EXTERNAL_DISPERSION_VALUE_LABELS = {
+    field: mapping for field, mapping in S6_EXTERNAL_VALUE_LABELS.items()
+    if field in S6_EXTERNAL_DISPERSION_HEADERS
+}
+S6_CENTROID_HEADERS = {
+    "comparison": "Comparison",
+    "sample_name": "Sample label",
+    "centroid_distance": "Distance to group centroid",
+}
+S6_CENTROID_VALUE_LABELS = {"comparison": S6_COMPARISON_LABELS}
+
+SNAKE_CASE_PATTERN = re.compile(r"\b[A-Za-z][A-Za-z0-9]*_[A-Za-z0-9_]*\b")
+
 
 def read_tsv(relative_path: str) -> tuple[list[str], list[dict[str, str]]]:
     path = ROOT / relative_path
@@ -233,6 +334,51 @@ def add_raw_tsv_table(ws, header_row: int, relative_path: str, table_name: str,
     return ref, headers, rows
 
 
+def assert_no_snake_case(headers: list[str], rows: list[list[Any]], label: str,
+                         excluded_value_columns: set[int] | None = None) -> None:
+    excluded_value_columns = excluded_value_columns or set()
+    for col, header in enumerate(headers):
+        if SNAKE_CASE_PATTERN.search(str(header)):
+            raise AssertionError(f"{label}: code-style header remains: {header!r}")
+        if col in excluded_value_columns:
+            continue
+        for row_num, row in enumerate(rows, start=1):
+            value = row[col]
+            if isinstance(value, str) and SNAKE_CASE_PATTERN.search(value):
+                raise AssertionError(f"{label}: code-style value remains at row {row_num}, column {col + 1}: {value!r}")
+
+
+def add_mapped_tsv_table(ws, header_row: int, relative_path: str, table_name: str,
+                         header_labels: dict[str, str],
+                         value_labels: dict[str, dict[str, str]] | None = None,
+                         skip_value_fields: set[str] | None = None
+                         ) -> tuple[list[str], list[list[Any]], list[str], dict[str, dict[str, str]]]:
+    source_headers, source_records = read_tsv(relative_path)
+    value_labels = value_labels or {}
+    skip_value_fields = skip_value_fields or set()
+    if set(header_labels) != set(source_headers):
+        missing = set(source_headers) - set(header_labels)
+        extra = set(header_labels) - set(source_headers)
+        raise ValueError(f"Display mapping for {relative_path} must cover all source fields; missing={missing}, extra={extra}")
+    if not set(value_labels).issubset(source_headers):
+        raise ValueError(f"Value mapping for {relative_path} names absent fields: {set(value_labels) - set(source_headers)}")
+    display_headers = [header_labels[field] for field in source_headers]
+    rows: list[list[Any]] = []
+    for record in source_records:
+        row: list[Any] = []
+        for field in source_headers:
+            raw = record.get(field)
+            mapped = value_labels.get(field, {}).get(raw) if raw is not None else None
+            row.append(mapped if mapped is not None else typed(raw, field))
+        rows.append(row)
+    skipped_columns = {i for i, field in enumerate(source_headers) if field in skip_value_fields}
+    assert_no_snake_case(display_headers, rows, f"S6 display table from {relative_path}", skipped_columns)
+    style_data_range(ws, header_row, display_headers, rows, table_name)
+    ws.cell(header_row - 1, 1, f"Source: {relative_path}")
+    ws.cell(header_row - 1, 1).font = Font(name=FONT_NAME, size=9, italic=True, color=MUTED)
+    return display_headers, rows, source_headers, value_labels
+
+
 def same_value(actual: Any, expected: Any) -> bool:
     if isinstance(expected, (int, float)) and not isinstance(expected, bool):
         if not isinstance(actual, (int, float)) or isinstance(actual, bool):
@@ -242,7 +388,9 @@ def same_value(actual: Any, expected: Any) -> bool:
 
 
 def verify_table(wb, ws_name: str, header_row: int, headers: list[str], rows: list[list[Any]],
-                 label: str, source_path: str | None = None) -> None:
+                 label: str, source_path: str | None = None,
+                 source_field_map: list[str] | None = None,
+                 source_value_mappings: dict[str, dict[str, str]] | None = None) -> None:
     ws = wb[ws_name]
     for col, expected in enumerate(headers, start=1):
         actual = ws.cell(header_row, col).value
@@ -257,7 +405,9 @@ def verify_table(wb, ws_name: str, header_row: int, headers: list[str], rows: li
         source_headers, source_rows = read_tsv(source_path)
         if len(source_rows) != len(rows):
             raise AssertionError(f"{label}: source row count {len(source_rows)} != workbook row count {len(rows)}")
-        if label == "S1 coding and missingness":
+        if source_field_map is not None:
+            source_map: list[str | None] = list(source_field_map)
+        elif label == "S1 coding and missingness":
             source_map: list[str | None] = ["variable", "n_profiles", "missing_profiles", None]
         elif label == "S2 11-candidate landscape":
             source_map = ["dataset_id_or_name", "modality", "sample_size", "population_or_ancestry", "access_link", "intended_role", None, None, "notes"]
@@ -275,7 +425,10 @@ def verify_table(wb, ws_name: str, header_row: int, headers: list[str], rows: li
             for col, source_field in enumerate(source_map, start=1):
                 if source_field is None:
                     continue
-                expected = typed(source_record.get(source_field), source_field)
+                raw_value = source_record.get(source_field)
+                expected = typed(raw_value, source_field)
+                if source_value_mappings:
+                    expected = source_value_mappings.get(source_field, {}).get(raw_value, expected)
                 actual = ws.cell(header_row + i, col).value
                 if not same_value(actual, expected):
                     raise AssertionError(f"{label}: source mismatch at {ws_name}!{get_column_letter(col)}{header_row+i} from {source_path}:{source_field}")
@@ -337,7 +490,7 @@ def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     wb = Workbook()
     wb.remove(wb.active)
-    checks: list[tuple[str, int, list[str], list[list[Any]], str, str | None]] = []
+    checks: list[tuple[Any, ...]] = []
     source_meta: list[tuple[str, str, int | str, str]] = []
 
     # S1: coding and missingness. Long numerical value enumerations are summarized
@@ -586,16 +739,16 @@ def main() -> None:
     set_base_sheet(ws)
     start = put_title(ws, "S6. Community-level tests and diagnostics", "Primary tests use child-mean OTU composition. External cohort tests use published genus percentages; dispersion results are shown alongside PERMANOVA.")
     primary_src = "results/primary/community_tests.tsv"
-    p_headers, p_rows = read_tsv(primary_src)
-    p_values = values_from_records(p_headers, p_rows)
-    add_raw_tsv_table(ws, start, primary_src, "S6PrimaryCommunityTests")
-    checks.append((ws.title, start, p_headers, p_values, "S6 primary community tests", primary_src))
-    source_meta.append(("S6", primary_src, len(p_rows), "Primary child-level PERMANOVA and PERMDISP"))
-    detail_row = start + len(p_rows) + 4
-    detail_headers = ["primary diagnostic", "value", "source interpretation"]
+    p_headers, p_values, p_fields, p_value_labels = add_mapped_tsv_table(
+        ws, start, primary_src, "S6PrimaryCommunityTests", S6_PRIMARY_HEADERS, S6_PRIMARY_VALUE_LABELS,
+    )
+    checks.append((ws.title, start, p_headers, p_values, "S6 primary community tests", primary_src, p_fields, p_value_labels))
+    source_meta.append(("S6", primary_src, len(p_values), "Primary child-level PERMANOVA and PERMDISP"))
+    detail_row = start + len(p_values) + 4
+    detail_headers = ["Diagnostic", "Value", "Method / interpretation"]
     detail_rows = [
-        ["Mean distance to median: Sinusitis", 0.5117, "PERMDISP; type=median; bias.adjust=TRUE; Lingoes correction"],
-        ["Mean distance to median: URI", 0.5828, "PERMDISP; type=median; bias.adjust=TRUE; Lingoes correction"],
+        ["Mean distance to median: Sinusitis", 0.5117, "Bias-adjusted distance to spatial median after Lingoes correction"],
+        ["Mean distance to median: URI", 0.5828, "Bias-adjusted distance to spatial median after Lingoes correction"],
         ["Positive PCoA eigenvalues", 43, "From primary community diagnostics"],
         ["Negative PCoA eigenvalues", 0, "From primary community diagnostics after Lingoes correction"],
     ]
@@ -607,18 +760,18 @@ def main() -> None:
 
     ws = wb.create_sheet("S6_ExternalTests")
     set_base_sheet(ws)
-    start = put_title(ws, "S6. External-cohort PERMANOVA and dispersion", "PRJNA422760: 56 samples from 28 paired patients. Three comparisons are shown for each test family.")
+    start = put_title(ws, "S6. External-cohort PERMANOVA and dispersion", "PRJNA422760: 56 samples from 28 paired patients. Three comparisons are shown for each test family. HP, hyperplasia; SOM, secretory otitis media.")
     src = "results/external/permanova.tsv"
-    fields, rows = read_tsv(src)
-    typed_rows = values_from_records(fields, rows)
-    add_raw_tsv_table(ws, start, src, "S6ExternalPermanova")
-    checks.append((ws.title, start, fields, typed_rows, "S6 external PERMANOVA", src))
+    fields, rows, source_fields, value_labels = add_mapped_tsv_table(
+        ws, start, src, "S6ExternalPermanova", S6_EXTERNAL_PERMANOVA_HEADERS, S6_EXTERNAL_PERMANOVA_VALUE_LABELS,
+    )
+    checks.append((ws.title, start, fields, rows, "S6 external PERMANOVA", src, source_fields, value_labels))
     disp_src = "results/external/dispersion.tsv"
     disp_row = start + len(rows) + 4
-    disp_headers, disp_records = read_tsv(disp_src)
-    disp_values = values_from_records(disp_headers, disp_records)
-    add_raw_tsv_table(ws, disp_row, disp_src, "S6ExternalDispersion")
-    checks.append((ws.title, disp_row, disp_headers, disp_values, "S6 external dispersion", disp_src))
+    disp_headers, disp_values, disp_source_fields, disp_value_labels = add_mapped_tsv_table(
+        ws, disp_row, disp_src, "S6ExternalDispersion", S6_EXTERNAL_DISPERSION_HEADERS, S6_EXTERNAL_DISPERSION_VALUE_LABELS,
+    )
+    checks.append((ws.title, disp_row, disp_headers, disp_values, "S6 external dispersion", disp_src, disp_source_fields, disp_value_labels))
     ws.freeze_panes = "C5"
     source_meta.extend([
         ("S6", src, len(rows), "External-cohort Bray–Curtis PERMANOVA results"),
@@ -627,13 +780,14 @@ def main() -> None:
 
     ws = wb.create_sheet("S6_CentroidDistances")
     set_base_sheet(ws)
-    start = put_title(ws, "S6. External-cohort sample centroid distances", "Per-sample distances are included as supporting diagnostics; labels match the external-cohort comparison table.")
+    start = put_title(ws, "S6. External-cohort sample centroid distances", "Per-sample distances are included as supporting diagnostics; comparison labels match the external test table and public sample labels are retained.")
     src = "results/external/centroid_distances.tsv"
-    fields, rows = read_tsv(src)
-    typed_rows = values_from_records(fields, rows)
-    add_raw_tsv_table(ws, start, src, "S6CentroidDistances")
+    fields, rows, source_fields, value_labels = add_mapped_tsv_table(
+        ws, start, src, "S6CentroidDistances", S6_CENTROID_HEADERS, S6_CENTROID_VALUE_LABELS,
+        skip_value_fields={"sample_name"},
+    )
     ws.freeze_panes = "B5"
-    checks.append((ws.title, start, fields, typed_rows, "S6 external centroid distances", src))
+    checks.append((ws.title, start, fields, rows, "S6 external centroid distances", src, source_fields, value_labels))
     source_meta.append(("S6", src, len(rows), "Per-sample distance to group centroid"))
 
     # S7: child burden, child-level model summaries, and earliest profile model.
@@ -687,8 +841,12 @@ def main() -> None:
     wb.save(OUTPUT_XLSX)
 
     readback = load_workbook(OUTPUT_XLSX, data_only=False, read_only=False)
-    for ws_name, header_row, headers, rows, label, source_path in checks:
-        verify_table(readback, ws_name, header_row, headers, rows, label, source_path)
+    for check in checks:
+        ws_name, header_row, headers, rows, label, source_path = check[:6]
+        source_field_map = check[6] if len(check) > 6 else None
+        source_value_mappings = check[7] if len(check) > 7 else None
+        verify_table(readback, ws_name, header_row, headers, rows, label, source_path,
+                     source_field_map, source_value_mappings)
     formula_cells = []
     error_values = {"#REF!", "#DIV/0!", "#VALUE!", "#NAME?", "#N/A", "#NUM!", "#NULL!", "#SPILL!", "#CALC!"}
     for ws in readback.worksheets:
@@ -838,14 +996,20 @@ def write_markdown(source_meta: list[tuple[str, str, int | str, str]]) -> None:
     # S6: display primary and external tests side-by-side without pooling them.
     s6_rows: list[list[Any]] = []
     for r in load("results/primary/community_tests.tsv"):
-        s6_rows.append(["Primary " + r["analysis"], r["term"], f"{r['n_children']} children; {r['n_profiles']} profiles",
+        test_label = S6_PRIMARY_VALUE_LABELS["analysis"][r["analysis"]]
+        comparison_label = S6_PRIMARY_VALUE_LABELS["term"][r["term"]]
+        s6_rows.append(["Primary " + test_label, comparison_label, f"{r['n_children']} children; {r['n_profiles']} profiles",
                         fmt(r["r2"], 4), fmt(r["statistic"], 4), fmt(r["pvalue"]), "Not reported", r["permutations"]])
     for r in load("results/external/permanova.tsv"):
-        s6_rows.append(["External PERMANOVA", r["comparison"], f"{r['n_patients']} patients; {r['n_samples']} samples",
+        s6_rows.append(["External PERMANOVA", S6_COMPARISON_LABELS[r["comparison"]], f"{r['n_patients']} patients; {r['n_samples']} samples",
                         fmt(r["term_r2_total"], 4), fmt(r["pseudo_f"], 4), fmt(r["p_value"]), fmt(r["p_bh_3_tests"]), r["permutations_effective"]])
     for r in load("results/external/dispersion.tsv"):
-        s6_rows.append(["External dispersion", r["comparison"], f"{r['n_patients']} patients; {r['n_samples']} samples",
+        s6_rows.append(["External dispersion", S6_COMPARISON_LABELS[r["comparison"]], f"{r['n_patients']} patients; {r['n_samples']} samples",
                         "—", fmt(r["statistic_f"], 4), fmt(r["p_value"]), fmt(r["p_bh_3_tests"]), r["permutations_effective"]])
+    assert_no_snake_case(
+        ["Test", "Comparison", "Independent units", "R²", "F statistic", "Raw P", "BH FDR", "Permutations"],
+        s6_rows, "Markdown S6 summary",
+    )
     s6_table = md_table(
         ["Test", "Comparison", "Independent units", "R²", "F statistic", "Raw P", "BH FDR", "Permutations"], s6_rows,
     )
@@ -931,7 +1095,7 @@ All 27 preselected paired tests are shown. The signed difference is tonsil minus
 
 ## S6. Community tests and diagnostics
 
-Primary-child and external-patient analyses are presented independently. The primary PERMANOVA uses 45 child-mean compositions; the external cohort has 28 paired patients and 56 samples. PERMANOVA and dispersion tests are both shown.
+Primary-child and external-patient analyses are presented independently. Comparison codes are expanded into descriptive English, while numeric results retain their source values. The primary PERMANOVA uses 45 child-mean compositions; the external cohort has 28 paired patients and 56 samples. PERMANOVA and dispersion tests are both shown.
 
 {s6_table}
 

@@ -113,7 +113,7 @@ source(2,'C',P,'bootstrap_summary.tsv','model;metric;estimate;ci_lower;ci_upper;
 # Figure 3: genus associations and descriptive profile abundances.
 g=read(P,'genus_models.tsv');md=pd.read_csv(ROOT/'data/processed/prjeb35160_sample_metadata.tsv',sep='\t'); abund=read(P,'genus_relative_abundance.tsv')
 a=md[['matrix_sample_id','outcome_group']].merge(abund,on='matrix_sample_id');a=a[a.outcome_group.isin(['URI','Sinusitis'])]
-fig,axes=plt.subplots(1,2,figsize=(8,4.3));fig.subplots_adjust(left=.21,right=.98,top=.85,bottom=.27,wspace=.65)
+fig,axes=plt.subplots(1,2,figsize=(8.4,4.3));fig.subplots_adjust(left=.20,right=.98,top=.85,bottom=.27,wspace=.82)
 panel(axes[0],'A','Adjusted genus associations')
 forest(axes[0],[r for _,r in g.iterrows()],g.genus.tolist(),xlim=(.7,1.5))
 axes[0].set_xlabel('Odds ratio per 10 percentage points\n(95% child-cluster CI)')
@@ -123,7 +123,7 @@ for j,(group,col,mark,offset) in enumerate([('URI',BLUE,'o',-.12),('Sinusitis',O
  for i,genus in enumerate(g.genus):
   q=np.quantile(a.loc[a.outcome_group==group,genus].to_numpy()*100,[.25,.5,.75])
   axes[1].errorbar(q[1],i+offset,xerr=[[q[1]-q[0]],[q[2]-q[1]]],fmt=mark,color=col,ms=4,lw=1.2,capsize=2,label=group if i==0 else None)
-axes[1].set_yticks(range(6),['']*6);axes[1].set_ylim(5.55,-.55);axes[1].set_xscale('symlog',linthresh=.1);axes[1].set_xlim(-.02,105)
+axes[1].set_yticks(range(6),g.genus.tolist());axes[1].tick_params(axis='y',labelsize=8,pad=4);axes[1].set_ylim(5.55,-.55);axes[1].set_xscale('symlog',linthresh=.1);axes[1].set_xlim(-.02,105)
 axes[1].set_xticks([0,.1,1,10,100],['0','0.1','1','10','100']);axes[1].set_xlabel('Relative abundance (%)\nProfile median and interquartile range')
 axes[1].legend(frameon=False,fontsize=8,loc='center right',bbox_to_anchor=(1,.70))
 fig.text(.5,.045,'323 profiles / 45 children · Each genus fitted separately with season and daycare\nq: Benjamini–Hochberg adjustment across six models; descriptive profiles are repeated within children',ha='center',fontsize=8)
@@ -136,8 +136,8 @@ source(3,'B',ROOT/'data/processed','prjeb35160_sample_metadata.tsv','matrix_samp
 t=read(P,'threshold_sensitivity.tsv');earliest=read(P,'earliest_profile_model.tsv').iloc[0];burden=read(P,'child_burden.tsv');loo=read(P,'leave_one_child_out_summary.tsv').iloc[0]
 fig,axes=plt.subplots(2,2,figsize=(8.2,6.3));fig.subplots_adjust(left=.22,right=.98,top=.92,bottom=.22,wspace=.58,hspace=1.0)
 ax=axes[0,0];panel(ax,'A','Dominance thresholds')
-forest(ax,[r for _,r in t.iterrows()],['25%','30%','50%'],xlim=(.7,4.4))
-for i,r in t.iterrows(): ax.text(4.25,i,f'q={r.fdr:.3f}',ha='right',va='center',fontsize=7)
+forest(ax,[r for _,r in t.iterrows()],['25%','30%','50%'],xlim=(.7,7.0))
+for i,r in t.iterrows(): ax.text(4.5,i,f'q={r.fdr:.3f}',ha='left',va='center',fontsize=7)
 
 ax=axes[0,1];panel(ax,'B','Weighting and profile selection')
 forest(ax,[models.loc['primary'],models.loc['equal_child_weight'],earliest],['All profiles','Equal child weight','Earliest eligible\nprofile / child'],[BLUE,GREEN,ORANGE],xlim=(.075,5))

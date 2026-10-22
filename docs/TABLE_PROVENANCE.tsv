@@ -1,6 +1,6 @@
 table_id	title	generating_script	source_tables	output_files	status
 dataset_flow	Dataset screening and analysis flow	Static analysis record	docs/DATASET_LANDSCAPE.tsv; docs/DATASET_SUITABILITY_DECISION.md	docs/DATASET_SCREEN_FLOW.tsv	included
-Table1	Cohort characteristics	scripts/main_tables.py	results/primary/group_descriptives.tsv; results/external/sample_support.tsv	results/tables/Table1.tsv; results/tables/Table1.md; results/tables/Main_Tables.xlsx	generated
+Table1	Cohort characteristics	scripts/main_tables.py	results/primary/group_descriptives.tsv; results/primary/model_membership.tsv; data/processed/prjeb35160_sample_metadata.tsv; results/external/sample_support.tsv	results/tables/Table1.tsv; results/tables/Table1.md; results/tables/Main_Tables.xlsx	generated
 Table2	Primary association and sensitivity analyses	scripts/main_tables.py	results/primary/adjusted_models.tsv; results/primary/earliest_profile_model.tsv; results/primary/no_tobacco_model.tsv; results/primary/child_burden_model.tsv	results/tables/Table2.tsv; results/tables/Table2.md; results/tables/Main_Tables.xlsx	generated
 Table3	Paired genus contrasts by tissue	scripts/main_tables.py	results/external/paired_genus_effects.tsv	results/tables/Table3.tsv; results/tables/Table3.md; results/tables/Main_Tables.xlsx	generated
 S1	Covariate coding and missingness	scripts/build_supplementary_tables.py	results/primary/covariate_coding_missingness.tsv	results/supplementary/Supplementary_Tables.xlsx; results/supplementary/Supplementary_Tables.md	generated
