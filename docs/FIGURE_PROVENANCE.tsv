@@ -8,7 +8,7 @@ Figure3	A	scripts/generate_publication_figures.py	results/primary/genus_models.t
 Figure3	B	scripts/generate_publication_figures.py	data/processed/prjeb35160_sample_metadata.tsv;results/primary/genus_relative_abundance.tsv	generated_from_analysis_tables
 Figure4	A	scripts/generate_publication_figures.py	results/primary/threshold_sensitivity.tsv	generated_from_analysis_tables
 Figure4	B	scripts/generate_publication_figures.py	results/primary/adjusted_models.tsv;results/primary/earliest_profile_model.tsv	generated_from_analysis_tables
-Figure4	C	scripts/generate_publication_figures.py	results/primary/adjusted_models.tsv;results/primary/bootstrap_summary.tsv;results/primary/leave_one_child_out_summary.tsv	generated_from_analysis_tables
+Figure4	C	scripts/generate_publication_figures.py	results/primary/adjusted_models.tsv;results/primary/bootstrap_summary.tsv;results/primary/leave_one_child_out.tsv	generated_from_analysis_tables
 Figure4	D	scripts/generate_publication_figures.py	results/primary/child_burden.tsv	generated_from_analysis_tables
 Figure5	A	scripts/generate_publication_figures.py	results/external/sample_states.tsv;results/primary/state_assignments.tsv	generated_from_analysis_tables
 Figure5	B,C	scripts/generate_publication_figures.py	results/external/paired_genus_effects.tsv;results/external/patient_paired_differences.tsv;results/external/sample_states.tsv	generated_from_analysis_tables

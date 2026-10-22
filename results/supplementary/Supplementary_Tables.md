@@ -29,31 +29,31 @@ The workbook contains seven numbered tables, S1–S7. Companion worksheets retai
 
 ## S2. Dataset landscape and selection flow
 
-The landscape is the repository-based screen of 11 candidates, not an exhaustive literature search or systematic review. Candidate-level counts and dispositions come from the existing dataset records; primary endpoint flow is reported from the finalized cohort flow.
+The table summarizes 11 candidate datasets considered in a targeted feasibility screen of public pediatric airway and ENT cohorts. Study-size descriptions are drawn from the dataset records, and primary endpoint flow is shown separately from the candidate landscape.
 
-| Candidate | Role | Reported size | Disposition and selection rationale |
-| --- | --- | --- | --- |
-| PRJEB35160 | endpoint_discovery | 354 processed profiles / 58 children; 462 ENA runs | Included: primary endpoint cohort — Direct pediatric URI/sinusitis endpoint with child identifiers and selected covariates. |
-| PRJNA554533 | manual_follow_up | 75 runs | Not analyzed: labels unavailable — No verifiable public sample-to-AH/AR/control mapping. |
-| PRJNA422760 | phenotype_transfer | 56 runs | Included: phenotype-transfer cohort — Paired adenoid/tonsil samples with patient, tissue, and HP/SOM labels. |
-| PRJEB88727 | phenotype_transfer_candidate | 174 runs | Held pending label verification — OME cohort; clinical labels and timepoints require verification. |
-| PRJNA275918 | adjacent_control | 3035 runs / 234 infants | Adjacent background only — Large infant nasopharyngeal cohort; age and endpoint differ. |
-| PRJNA1413967 | adjacent_control | 126 runs | Adjacent-control candidate — Asthma/control throat swabs do not match the ENT endpoint. |
-| PRJNA1049442 | adjacent_control | 152 runs | Excluded from 16S mainline — Shotgun modality and HIV host context differ from the 16S cohorts. |
-| PRJEB72800 | manual_follow_up | 0 rows in first ENA run check | Unresolved accession check — ENA run-metadata request returned no rows. |
-| PRJNA861845 | manual_follow_up | 0 rows in first NCBI runinfo check | Unresolved accession check — SRA RunInfo request did not resolve the reported accession. |
-| PRJNA1441615 | exploratory_context | 35 runs | Excluded from mainline — Small special-population tonsil cohort with Down syndrome/OSA context. |
-| PRJNA615768 | exploratory_context | 58 runs | Excluded from mainline — Tonsil/saliva comparison with modality and metadata ambiguity. |
-
-| Flow stage | Datasets (n) | Participants / children (n) | Profiles / runs (n) | Status |
+| Candidate | Study role | Reported study size | Selection status and rationale | Additional information |
 | --- | --- | --- | --- | --- |
-| Public pediatric airway or ENT datasets screened | 11 | — | — | Screened |
-| Primary endpoint cohort: all released | 1 | 58 | 354 | Released |
-| Primary endpoint cohort: eligible profiles included | 1 | 45 | 323 | Analyzed |
-| Primary endpoint profiles excluded for no eligible group | 1 | 13 | 31 | Excluded |
-| Secondary pediatric ENT cohort retained | 1 | 28 | 56 | Analyzed descriptively |
-| Label-insufficient pediatric ENT cohort not analyzed | 1 | — | 75 | Not analyzed |
-| Adjacent-control or metadata-only cohorts not used for main claims | 8 | — | — | Not analyzed for main claims |
+| PRJEB35160 | Primary endpoint cohort | 354 processed profiles / 58 children; 462 ENA runs | Selected: primary endpoint cohort — Provides pediatric URI and acute sinusitis outcomes, child identifiers, selected covariates, and public processed data. | Longitudinal pediatric URI and acute sinusitis outcomes; companion analysis artifacts are available. |
+| PRJNA554533 | Candidate cohort requiring verification | 75 runs | Not analyzed: clinical labels unverified — Public records do not currently verify sample-level assignment to adenoid hypertrophy, allergic rhinitis, or control groups. | The study reports nasal microbiota in children with adenoid hypertrophy or allergic rhinitis; public records do not yet verify sample-level group labels. |
+| PRJNA422760 | Paired anatomical context | 56 runs | Summarized descriptively — Paired adenoid and tonsil samples with patient and clinical-group labels support descriptive state summaries. | The source article provides supplementary taxonomy and clinical-group data for paired adenoid and tonsil samples. |
+| PRJEB88727 | Potential secondary ENT cohort | 174 runs | Verification pending — Clinical labels and sampling timepoints require confirmation from publication materials before analysis. | The OME cohort includes probiotic context; clinical labels and sampling timepoints require confirmation from publication materials. |
+| PRJNA275918 | Contextual comparator cohort | 3035 runs / 234 infants | Context only — The infant age range and study endpoint differ from the target pediatric clinical question. | Infant nasopharyngeal profiles provide ecological context; age and endpoint differ from the primary clinical question. |
+| PRJNA1413967 | Contextual comparator cohort | 126 runs | Context only — Asthma and healthy-control throat-swab sampling does not match the ENT study setting. | Upper-airway throat swabs compare asthma and healthy-control groups. |
+| PRJNA1049442 | Contextual comparator cohort | 152 runs | Context only — Shotgun sequencing and HIV status differ from the 16S-based ENT cohorts. | Upper-respiratory shotgun data from children with and without HIV infection differ in assay modality and host condition. |
+| PRJEB72800 | Candidate cohort requiring verification | Sample count not yet verified | Availability unresolved — The initial public ENA query has not yet yielded verifiable sample records; dataset availability remains unresolved. | A publication is available; the initial public ENA query has not yet yielded verifiable run records. |
+| PRJNA861845 | Candidate cohort requiring verification | Sample count not yet verified | Accession status unresolved — The initial public SRA RunInfo query has not yet yielded verifiable sample records; accession status remains unresolved. | The publication reports an SRA accession; the initial public RunInfo query has not yet yielded verifiable run records. |
+| PRJNA1441615 | Exploratory context cohort | 35 runs | Context only — The small tonsil cohort represents a distinct population of children with Down syndrome and obstructive sleep apnea. | Small tonsil cohort from children with Down syndrome and obstructive sleep apnea. |
+| PRJNA615768 | Exploratory context cohort | 58 runs | Not selected — The tonsil and saliva study has assay and metadata descriptions that require clarification before primary analysis. | Tonsil and saliva data have assay and metadata descriptions that require clarification. |
+
+| Screening stage | Datasets (n) | Participants / children (n) | Profiles / runs (n) | Screening outcome | Basis for selection |
+| --- | --- | --- | --- | --- | --- |
+| Public pediatric airway or ENT datasets screened | 11 | — | — | Screened | Candidate cohorts were assessed for pediatric relevance, airway or ENT sampling, public records, and usable clinical labels. |
+| Primary endpoint cohort: all released | 1 | 58 | 354 | Released | Counts from the finalized primary endpoint cohort flow. |
+| Primary endpoint cohort: eligible profiles included | 1 | 45 | 323 | Analyzed | URI and sinusitis profiles with eligible outcome labels. |
+| Primary endpoint profiles excluded for no eligible group | 1 | 13 | 31 | Excluded | Released children and profiles without an eligible endpoint group. |
+| Paired ENT cohort summarized descriptively | 1 | 28 | 56 | Descriptive summary | Public records and article supplements provide paired adenoid and tonsil labels and HP/SOM group assignment for descriptive summaries. |
+| Pediatric ENT cohort with unverified group labels | 1 | — | 75 | Not analyzed | Public SRA, BioSample, and article materials do not currently verify sample-level assignments to adenoid hypertrophy, allergic rhinitis, or control groups. |
+| Other candidates not selected for the primary endpoint analysis | 8 | — | — | Not selected for primary analysis | Age range, endpoint, sampling site, assay modality, or clinical labels differ from the primary clinical question. |
 
 ## S3. Threshold counts and adjusted associations
 

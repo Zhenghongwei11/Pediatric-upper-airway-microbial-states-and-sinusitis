@@ -151,6 +151,89 @@ S6_CENTROID_VALUE_LABELS = {"comparison": S6_COMPARISON_LABELS}
 
 SNAKE_CASE_PATTERN = re.compile(r"\b[A-Za-z][A-Za-z0-9]*_[A-Za-z0-9_]*\b")
 
+S2_LANDSCAPE_HEADERS = [
+    "Dataset / accession", "Sequencing modality", "Reported study size",
+    "Population", "Public repository link", "Study role", "Selection status",
+    "Selection rationale", "Additional information",
+]
+S2_LANDSCAPE_SOURCE_FIELDS = [
+    "dataset_id_or_name", "modality", "sample_size", "population_or_ancestry",
+    "access_link", "intended_role", None, None, "notes",
+]
+S2_ROLE_VALUE_LABELS = {
+    "endpoint_discovery": "Primary endpoint cohort",
+    "manual_follow_up": "Candidate cohort requiring verification",
+    "phenotype_transfer": "Paired anatomical context",
+    "phenotype_transfer_candidate": "Potential secondary ENT cohort",
+    "adjacent_control": "Contextual comparator cohort",
+    "exploratory_context": "Exploratory context cohort",
+}
+S2_SAMPLE_SIZE_VALUE_LABELS = {
+    "0 rows in first ENA run check": "Sample count not yet verified",
+    "0 rows in first NCBI runinfo check": "Sample count not yet verified",
+}
+S2_NOTE_VALUE_LABELS = {
+    "Direct longitudinal URI and acute sinusitis endpoint; companion GitHub artifacts":
+        "Longitudinal pediatric URI and acute sinusitis outcomes; companion analysis artifacts are available.",
+    "Nasal microbiota in AH/AR; not analyzed until public RHINO sample-to-group labels are recovered":
+        "The study reports nasal microbiota in children with adenoid hypertrophy or allergic rhinitis; public records do not yet verify sample-level group labels.",
+    "Adenoid/tonsil samples; PMC article has supplementary taxonomy and group outputs":
+        "The source article provides supplementary taxonomy and clinical-group data for paired adenoid and tonsil samples.",
+    "Promising OME/probiotic cohort; clinical labels require article/supplement verification":
+        "The OME cohort includes probiotic context; clinical labels and sampling timepoints require confirmation from publication materials.",
+    "Large nasopharyngeal ecological-state background; endpoint and age differ":
+        "Infant nasopharyngeal profiles provide ecological context; age and endpoint differ from the primary clinical question.",
+    "Upper airway throat swabs; asthma/control rather than ENT endpoint":
+        "Upper-airway throat swabs compare asthma and healthy-control groups.",
+    "Upper-respiratory shotgun data; modality and host condition differ from 16S ENT cohorts":
+        "Upper-respiratory shotgun data from children with and without HIV infection differ in assay modality and host condition.",
+    "Publication exists, but first-pass ENA filereport returned no rows":
+        "A publication is available; the initial public ENA query has not yet yielded verifiable run records.",
+    "Publication reports SRA accession but first-pass RunInfo did not resolve":
+        "The publication reports an SRA accession; the initial public RunInfo query has not yet yielded verifiable run records.",
+    "Small special-population tonsil dataset":
+        "Small tonsil cohort from children with Down syndrome and obstructive sleep apnea.",
+    "Metadata/modality ambiguity; not mainline until clarified":
+        "Tonsil and saliva data have assay and metadata descriptions that require clarification.",
+}
+S2_LANDSCAPE_VALUE_MAPPINGS = {
+    "intended_role": S2_ROLE_VALUE_LABELS,
+    "sample_size": S2_SAMPLE_SIZE_VALUE_LABELS,
+    "notes": S2_NOTE_VALUE_LABELS,
+}
+S2_FLOW_STAGE_VALUE_LABELS = {
+    "Secondary pediatric ENT cohort retained": "Paired ENT cohort summarized descriptively",
+    "Label-insufficient pediatric ENT cohort not analyzed": "Pediatric ENT cohort with unverified group labels",
+    "Adjacent-control or metadata-only cohorts not used for main claims":
+        "Other candidates not selected for the primary endpoint analysis",
+}
+S2_FLOW_STATUS_VALUE_LABELS = {
+    "Analyzed descriptively": "Descriptive summary",
+    "Not analyzed": "Not analyzed",
+    "Not analyzed for main claims": "Not selected for primary analysis",
+}
+S2_FLOW_RATIONALE_VALUE_LABELS = {
+    "Paired adenoid and tonsil labels plus HP/SOM group assignment were confirmed from database records and the source article supplementary files.":
+        "Public records and article supplements provide paired adenoid and tonsil labels and HP/SOM group assignment for descriptive summaries.",
+    "Sample-to-group AH/AR/control mapping could not be confirmed from public SRA, BioSample, or static article materials.":
+        "Public SRA, BioSample, and article materials do not currently verify sample-level assignments to adenoid hypertrophy, allergic rhinitis, or control groups.",
+    "Age, endpoint, sampling site, modality, or clinical-label differences made them unsuitable for the primary clinical question.":
+        "Age range, endpoint, sampling site, assay modality, or clinical labels differ from the primary clinical question.",
+}
+S2_DISPOSITIONS = {
+    "PRJEB35160": ("Selected: primary endpoint cohort", "Provides pediatric URI and acute sinusitis outcomes, child identifiers, selected covariates, and public processed data."),
+    "PRJNA422760": ("Summarized descriptively", "Paired adenoid and tonsil samples with patient and clinical-group labels support descriptive state summaries."),
+    "PRJNA554533": ("Not analyzed: clinical labels unverified", "Public records do not currently verify sample-level assignment to adenoid hypertrophy, allergic rhinitis, or control groups."),
+    "PRJEB88727": ("Verification pending", "Clinical labels and sampling timepoints require confirmation from publication materials before analysis."),
+    "PRJNA275918": ("Context only", "The infant age range and study endpoint differ from the target pediatric clinical question."),
+    "PRJNA1413967": ("Context only", "Asthma and healthy-control throat-swab sampling does not match the ENT study setting."),
+    "PRJNA1049442": ("Context only", "Shotgun sequencing and HIV status differ from the 16S-based ENT cohorts."),
+    "PRJEB72800": ("Availability unresolved", "The initial public ENA query has not yet yielded verifiable sample records; dataset availability remains unresolved."),
+    "PRJNA861845": ("Accession status unresolved", "The initial public SRA RunInfo query has not yet yielded verifiable sample records; accession status remains unresolved."),
+    "PRJNA1441615": ("Context only", "The small tonsil cohort represents a distinct population of children with Down syndrome and obstructive sleep apnea."),
+    "PRJNA615768": ("Not selected", "The tonsil and saliva study has assay and metadata descriptions that require clarification before primary analysis."),
+}
+
 
 def read_tsv(relative_path: str) -> tuple[list[str], list[dict[str, str]]]:
     path = ROOT / relative_path
@@ -522,27 +605,29 @@ def main() -> None:
     # S2: use the existing repository landscape and contemporaneous selection record.
     ws = wb.create_sheet("S2_Datasets")
     set_base_sheet(ws)
-    start = put_title(ws, "S2. Public dataset landscape and selection flow", "This is the existing repository-based candidate screen, not an exhaustive database search or systematic review.")
+    start = put_title(ws, "S2. Public dataset landscape and selection flow", "Targeted feasibility screen of public pediatric airway and ENT cohorts.")
     landscape_path = "docs/DATASET_LANDSCAPE.tsv"
     _, landscape = read_tsv(landscape_path)
-    dispositions = {
-        "PRJEB35160": ("Included: primary endpoint cohort", "Direct pediatric URI/sinusitis endpoint with child identifiers, selected covariates, and public processed data."),
-        "PRJNA422760": ("Included: phenotype-transfer cohort", "Pediatric paired adenoid/tonsil samples; public patient, tissue, and HP/SOM labels support descriptive state-transfer analysis."),
-        "PRJNA554533": ("Not analyzed: labels unavailable", "The public records did not provide a verifiable sample-to-AH/AR/control mapping."),
-        "PRJEB88727": ("Held pending label verification", "OME cohort is relevant, but clinical labels and timepoints require verification before analysis."),
-        "PRJNA275918": ("Adjacent background only", "Large infant nasopharyngeal cohort; age and endpoint differ from the target clinical question."),
-        "PRJNA1413967": ("Adjacent-control candidate", "Asthma/control throat-swab cohort; clinical labeling is insufficient for the ENT endpoint."),
-        "PRJNA1049442": ("Excluded from 16S mainline", "Shotgun modality and HIV host context differ from the 16S ENT cohorts."),
-        "PRJEB72800": ("Unresolved in first run check", "The first ENA run-metadata request returned no rows."),
-        "PRJNA861845": ("Unresolved in first accession check", "The first SRA RunInfo request did not resolve the reported accession."),
-        "PRJNA1441615": ("Excluded from mainline", "Small special-population tonsil cohort with Down syndrome/OSA context."),
-        "PRJNA615768": ("Excluded from mainline", "Tonsil/saliva comparison with modality and metadata ambiguity."),
-    }
-    s2_headers = ["dataset_id_or_name", "modality", "sample_size", "population_or_ancestry", "access_link", "intended_role", "screening_disposition", "selection_reason", "notes"]
+    if {r["dataset_id_or_name"] for r in landscape} != set(S2_DISPOSITIONS):
+        raise AssertionError("S2 disposition mapping must cover the unchanged 11-candidate landscape")
+    if {r["intended_role"] for r in landscape} != set(S2_ROLE_VALUE_LABELS):
+        raise AssertionError("S2 role mapping must cover every source role")
+    if {r["notes"] for r in landscape} != set(S2_NOTE_VALUE_LABELS):
+        raise AssertionError("S2 note mapping must cover every source note")
+    if not set(S2_SAMPLE_SIZE_VALUE_LABELS).issubset({r["sample_size"] for r in landscape}):
+        raise AssertionError("S2 retrieval-status size mappings do not match source records")
     s2_rows = []
     for r in landscape:
-        status, reason = dispositions[r["dataset_id_or_name"]]
-        s2_rows.append([r["dataset_id_or_name"], r["modality"], r["sample_size"], r["population_or_ancestry"], r["access_link"], r["intended_role"], status, reason, r["notes"]])
+        status, reason = S2_DISPOSITIONS[r["dataset_id_or_name"]]
+        s2_rows.append([
+            r["dataset_id_or_name"], r["modality"],
+            S2_SAMPLE_SIZE_VALUE_LABELS.get(r["sample_size"], r["sample_size"]),
+            r["population_or_ancestry"], r["access_link"],
+            S2_ROLE_VALUE_LABELS[r["intended_role"]], status, reason,
+            S2_NOTE_VALUE_LABELS[r["notes"]],
+        ])
+    s2_headers = S2_LANDSCAPE_HEADERS
+    assert_no_snake_case(s2_headers, s2_rows, "S2 dataset landscape")
     add_custom_table(ws, start, "S2DatasetLandscape", s2_headers, s2_rows)
     for i, row in enumerate(s2_rows, start=start + 1):
         link = ws.cell(i, 5).value
@@ -561,12 +646,12 @@ def main() -> None:
     if (int(cohort_flow["all_released"]["profiles"]) - int(cohort_flow["excluded_no_group"]["profiles"]) != int(cohort_flow["included"]["profiles"])
             or int(cohort_flow["all_released"]["children"]) - int(cohort_flow["excluded_no_group"]["children"]) != int(cohort_flow["included"]["children"])):
         raise AssertionError("Finalized released, excluded, and included cohort counts do not reconcile")
-    flow_headers = ["Flow stage", "Datasets (n)", "Independent participants / children (n)", "Profiles or runs (n)", "Status", "Rationale"]
+    flow_headers = ["Screening stage", "Datasets (n)", "Independent participants / children (n)", "Profiles / runs (n)", "Screening outcome", "Basis for selection"]
     released = cohort_flow["all_released"]
     excluded = cohort_flow["excluded_no_group"]
     included = cohort_flow["included"]
     flow_rows = [
-        ["Public pediatric airway or ENT datasets screened", 11, None, None, "Screened", "Public access, pediatric relevance, airway or ENT sampling, and label availability were reviewed."],
+        ["Public pediatric airway or ENT datasets screened", 11, None, None, "Screened", "Candidate cohorts were assessed for pediatric relevance, airway or ENT sampling, public records, and usable clinical labels."],
         ["Primary endpoint cohort: all released", 1, typed(released["children"], "children"), typed(released["profiles"], "profiles"), "Released", "Counts from finalized endpoint cohort flow."],
         ["Primary endpoint cohort: eligible profiles included", 1, typed(included["children"], "children"), typed(included["profiles"], "profiles"), "Analyzed", "URI and sinusitis profiles with eligible outcome labels."],
         ["Primary endpoint profiles excluded for no eligible group", 1, typed(excluded["children"], "children"), typed(excluded["profiles"], "profiles"), "Excluded", "Released children and profiles with no eligible endpoint group."],
@@ -578,9 +663,11 @@ def main() -> None:
             "Adjacent-control or metadata-only cohorts not used for main claims",
         }:
             flow_rows.append([
-                record["flow_stage"], typed(record["datasets"], "datasets"),
+                S2_FLOW_STAGE_VALUE_LABELS[record["flow_stage"]], typed(record["datasets"], "datasets"),
                 typed(record["independent_participants"], "independent_participants"),
-                typed(record["profiles_or_runs"], "profiles_or_runs"), record["status"], record["rationale"],
+                typed(record["profiles_or_runs"], "profiles_or_runs"),
+                S2_FLOW_STATUS_VALUE_LABELS[record["status"]],
+                S2_FLOW_RATIONALE_VALUE_LABELS[record["rationale"]],
             ])
     if len(flow_rows) != 7:
         raise AssertionError(f"Expected seven reconciled S2 flow rows, found {len(flow_rows)}")
@@ -588,7 +675,8 @@ def main() -> None:
     ws.cell(flow_header_row - 1, 1).font = Font(name=FONT_NAME, size=9, italic=True, color=MUTED)
     add_custom_table(ws, flow_header_row, "S2DatasetFlow", flow_headers, flow_rows)
     ws.freeze_panes = "A5"
-    checks.append((ws.title, start, s2_headers, s2_rows, "S2 11-candidate landscape", landscape_path))
+    checks.append((ws.title, start, s2_headers, s2_rows, "S2 11-candidate landscape", landscape_path,
+                   S2_LANDSCAPE_SOURCE_FIELDS, S2_LANDSCAPE_VALUE_MAPPINGS))
     checks.append((ws.title, flow_header_row, flow_headers, flow_rows, "S2 reconciled dataset and endpoint flow", None))
     if len(landscape) != 11:
         raise AssertionError(f"Expected the documented 11 candidates, found {len(landscape)}")
@@ -914,38 +1002,38 @@ def write_markdown(source_meta: list[tuple[str, str, int | str, str]]) -> None:
     # S2: record all 11 repository candidates, then display dataset-level flow
     # alongside finalized endpoint flow. The old candidate-flow primary row is
     # deliberately not used for the analysis denominator.
-    s2_dispositions = {
-        "PRJEB35160": ("Included: primary endpoint cohort", "Direct pediatric URI/sinusitis endpoint with child identifiers and selected covariates."),
-        "PRJNA422760": ("Included: phenotype-transfer cohort", "Paired adenoid/tonsil samples with patient, tissue, and HP/SOM labels."),
-        "PRJNA554533": ("Not analyzed: labels unavailable", "No verifiable public sample-to-AH/AR/control mapping."),
-        "PRJEB88727": ("Held pending label verification", "OME cohort; clinical labels and timepoints require verification."),
-        "PRJNA275918": ("Adjacent background only", "Large infant nasopharyngeal cohort; age and endpoint differ."),
-        "PRJNA1413967": ("Adjacent-control candidate", "Asthma/control throat swabs do not match the ENT endpoint."),
-        "PRJNA1049442": ("Excluded from 16S mainline", "Shotgun modality and HIV host context differ from the 16S cohorts."),
-        "PRJEB72800": ("Unresolved accession check", "ENA run-metadata request returned no rows."),
-        "PRJNA861845": ("Unresolved accession check", "SRA RunInfo request did not resolve the reported accession."),
-        "PRJNA1441615": ("Excluded from mainline", "Small special-population tonsil cohort with Down syndrome/OSA context."),
-        "PRJNA615768": ("Excluded from mainline", "Tonsil/saliva comparison with modality and metadata ambiguity."),
-    }
     landscape = load("docs/DATASET_LANDSCAPE.tsv")
+    s2_md_headers = ["Candidate", "Study role", "Reported study size", "Selection status and rationale", "Additional information"]
+    s2_md_rows = []
+    for r in landscape:
+        status, reason = S2_DISPOSITIONS[r["dataset_id_or_name"]]
+        s2_md_rows.append([
+            r["dataset_id_or_name"], S2_ROLE_VALUE_LABELS[r["intended_role"]],
+            S2_SAMPLE_SIZE_VALUE_LABELS.get(r["sample_size"], r["sample_size"]),
+            " — ".join((status, reason)), S2_NOTE_VALUE_LABELS[r["notes"]],
+        ])
+    assert_no_snake_case(s2_md_headers, s2_md_rows, "Markdown S2 dataset landscape")
     s2_table = md_table(
-        ["Candidate", "Role", "Reported size", "Disposition and selection rationale"],
-        [[r["dataset_id_or_name"], r["intended_role"], r["sample_size"], " — ".join(s2_dispositions[r["dataset_id_or_name"]])]
-         for r in landscape],
+        s2_md_headers, s2_md_rows,
     )
     dataset_flow = load("docs/DATASET_SCREEN_FLOW.tsv")
     cohort_flow = {r["stage"]: r for r in load("results/primary/cohort_flow.tsv")}
     s2_flow_rows = [
-        ["Public pediatric airway or ENT datasets screened", "11", "—", "—", "Screened"],
-        ["Primary endpoint cohort: all released", "1", cohort_flow["all_released"]["children"], cohort_flow["all_released"]["profiles"], "Released"],
-        ["Primary endpoint cohort: eligible profiles included", "1", cohort_flow["included"]["children"], cohort_flow["included"]["profiles"], "Analyzed"],
-        ["Primary endpoint profiles excluded for no eligible group", "1", cohort_flow["excluded_no_group"]["children"], cohort_flow["excluded_no_group"]["profiles"], "Excluded"],
+        ["Public pediatric airway or ENT datasets screened", "11", "—", "—", "Screened", "Candidate cohorts were assessed for pediatric relevance, airway or ENT sampling, public records, and usable clinical labels."],
+        ["Primary endpoint cohort: all released", "1", cohort_flow["all_released"]["children"], cohort_flow["all_released"]["profiles"], "Released", "Counts from the finalized primary endpoint cohort flow."],
+        ["Primary endpoint cohort: eligible profiles included", "1", cohort_flow["included"]["children"], cohort_flow["included"]["profiles"], "Analyzed", "URI and sinusitis profiles with eligible outcome labels."],
+        ["Primary endpoint profiles excluded for no eligible group", "1", cohort_flow["excluded_no_group"]["children"], cohort_flow["excluded_no_group"]["profiles"], "Excluded", "Released children and profiles without an eligible endpoint group."],
     ]
     for r in dataset_flow:
         if r["step"] in {"3", "4", "5"}:
-            s2_flow_rows.append([r["flow_stage"], r["datasets"], r["independent_participants"] or "—", r["profiles_or_runs"] or "—", r["status"]])
+            s2_flow_rows.append([
+                S2_FLOW_STAGE_VALUE_LABELS[r["flow_stage"]], r["datasets"],
+                r["independent_participants"] or "—", r["profiles_or_runs"] or "—",
+                S2_FLOW_STATUS_VALUE_LABELS[r["status"]],
+                S2_FLOW_RATIONALE_VALUE_LABELS[r["rationale"]],
+            ])
     s2_flow_table = md_table(
-        ["Flow stage", "Datasets (n)", "Participants / children (n)", "Profiles / runs (n)", "Status"],
+        ["Screening stage", "Datasets (n)", "Participants / children (n)", "Profiles / runs (n)", "Screening outcome", "Basis for selection"],
         s2_flow_rows,
     )
 
@@ -1063,7 +1151,7 @@ The workbook contains seven numbered tables, S1–S7. Companion worksheets retai
 
 ## S2. Dataset landscape and selection flow
 
-The landscape is the repository-based screen of 11 candidates, not an exhaustive literature search or systematic review. Candidate-level counts and dispositions come from the existing dataset records; primary endpoint flow is reported from the finalized cohort flow.
+The table summarizes 11 candidate datasets considered in a targeted feasibility screen of public pediatric airway and ENT cohorts. Study-size descriptions are drawn from the dataset records, and primary endpoint flow is shown separately from the candidate landscape.
 
 {s2_table}
 

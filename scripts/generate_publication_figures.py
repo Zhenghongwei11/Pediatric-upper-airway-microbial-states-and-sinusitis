@@ -87,7 +87,7 @@ source(1,'B',E,'sample_support.tsv','clinical_group;tissue;n_samples;n_patients'
 # Figure 2: proportions and distinct association measures.
 b = read(P, 'bootstrap_summary.tsv'); models = read(P, 'adjusted_models.tsv').set_index('model')
 fig, axes = plt.subplots(1, 3, figsize=(8.0, 3.5))
-fig.subplots_adjust(left=.09, right=.98, top=.77, bottom=.25, wspace=.65)
+fig.subplots_adjust(left=.09, right=.98, top=.77, bottom=.14, wspace=.65)
 ax = axes[0]; panel(ax,'A','Observed group-label\nproportions')
 for i,(group,label,col) in enumerate([('other','Other profiles',GREY),('Moraxella-dominant','Moraxella\ndominant',BLUE)]):
     r=b[(b.model==group)&(b.metric=='group_profile_proportion')].iloc[0]
@@ -103,7 +103,6 @@ r=b[(b.model=='primary')&(b.metric=='standardized_proportion_ratio')].iloc[0]
 axes[2].errorbar(r.estimate,0,xerr=[[r.estimate-r.ci_lower],[r.ci_upper-r.estimate]],fmt='s',color=GREEN,capsize=4,ms=5)
 axes[2].axvline(1,color=GREY,ls='--',lw=.8);axes[2].set_yticks([]);axes[2].set_xlim(.7,2.1);axes[2].set_ylim(-.55,.55)
 axes[2].set_xlabel('Proportion ratio (95% CI)');axes[2].text(.5,.95,f'{r.estimate:.2f} ({r.ci_lower:.2f}–{r.ci_upper:.2f})',transform=axes[2].transAxes,ha='center',fontsize=8)
-fig.text(.5,.06,'323 profiles / 45 children · Exposure: Moraxella dominance ≥30%\nA: whole-child bootstrap (2,000/2,000); B: child-cluster t interval; C: bootstrap (1,915/2,000 estimable fits)',ha='center',fontsize=8)
 save(fig,2)
 source(2,'A',P,'bootstrap_summary.tsv','model;metric;estimate;ci_lower;ci_upper;successful','group_profile_proportion for other and Moraxella-dominant; multiply by 100')
 source(2,'A',P,'threshold_sensitivity.tsv','threshold_percent;exposed_profiles;exposed_positive_profiles;unexposed_profiles;unexposed_positive_profiles','30% numerator/denominator annotations')
@@ -113,7 +112,7 @@ source(2,'C',P,'bootstrap_summary.tsv','model;metric;estimate;ci_lower;ci_upper;
 # Figure 3: genus associations and descriptive profile abundances.
 g=read(P,'genus_models.tsv');md=pd.read_csv(ROOT/'data/processed/prjeb35160_sample_metadata.tsv',sep='\t'); abund=read(P,'genus_relative_abundance.tsv')
 a=md[['matrix_sample_id','outcome_group']].merge(abund,on='matrix_sample_id');a=a[a.outcome_group.isin(['URI','Sinusitis'])]
-fig,axes=plt.subplots(1,2,figsize=(8.4,4.3));fig.subplots_adjust(left=.20,right=.98,top=.85,bottom=.27,wspace=.82)
+fig,axes=plt.subplots(1,2,figsize=(8.4,4.3));fig.subplots_adjust(left=.20,right=.98,top=.85,bottom=.18,wspace=.82)
 panel(axes[0],'A','Adjusted genus associations')
 forest(axes[0],[r for _,r in g.iterrows()],g.genus.tolist(),xlim=(.7,1.5))
 axes[0].set_xlabel('Odds ratio per 10 percentage points\n(95% child-cluster CI)')
@@ -126,28 +125,40 @@ for j,(group,col,mark,offset) in enumerate([('URI',BLUE,'o',-.12),('Sinusitis',O
 axes[1].set_yticks(range(6),g.genus.tolist());axes[1].tick_params(axis='y',labelsize=8,pad=4);axes[1].set_ylim(5.55,-.55);axes[1].set_xscale('symlog',linthresh=.1);axes[1].set_xlim(-.02,105)
 axes[1].set_xticks([0,.1,1,10,100],['0','0.1','1','10','100']);axes[1].set_xlabel('Relative abundance (%)\nProfile median and interquartile range')
 axes[1].legend(frameon=False,fontsize=8,loc='center right',bbox_to_anchor=(1,.70))
-fig.text(.5,.045,'323 profiles / 45 children · Each genus fitted separately with season and daycare\nq: Benjamini–Hochberg adjustment across six models; descriptive profiles are repeated within children',ha='center',fontsize=8)
 save(fig,3)
 source(3,'A',P,'genus_models.tsv','genus;effect;ci_lower;ci_upper;fdr','Six per-10-percentage-point models; BH family of six')
 source(3,'B',P,'genus_relative_abundance.tsv','matrix_sample_id;Moraxella;Haemophilus;Streptococcus;Staphylococcus;Corynebacterium;Alloiococcus','Join sample metadata by matrix_sample_id; URI/Sinusitis profile quantiles [25,50,75], multiply by 100')
 source(3,'B',ROOT/'data/processed','prjeb35160_sample_metadata.tsv','matrix_sample_id;outcome_group','Restrict to URI/Sinusitis follow-up outcome groups')
 
 # Figure 4: sensitivity intervals, influence ranges and raw child burden.
-t=read(P,'threshold_sensitivity.tsv');earliest=read(P,'earliest_profile_model.tsv').iloc[0];burden=read(P,'child_burden.tsv');loo=read(P,'leave_one_child_out_summary.tsv').iloc[0]
-fig,axes=plt.subplots(2,2,figsize=(8.2,6.3));fig.subplots_adjust(left=.22,right=.98,top=.92,bottom=.22,wspace=.58,hspace=1.0)
+t=read(P,'threshold_sensitivity.tsv');earliest=read(P,'earliest_profile_model.tsv').iloc[0];burden=read(P,'child_burden.tsv')
+loo_points=read(P,'leave_one_child_out.tsv')
+loo_points=loo_points[(loo_points.effect_type=='odds_ratio')&(loo_points.exposure=='moraxella_30')]
+assert len(loo_points)==45 and loo_points.omitted_child.nunique()==45 and loo_points.effect.notna().all()
+fig,axes=plt.subplots(2,2,figsize=(8.2,6.3));fig.subplots_adjust(left=.22,right=.98,top=.92,bottom=.12,wspace=.58,hspace=.85)
 ax=axes[0,0];panel(ax,'A','Dominance thresholds')
 forest(ax,[r for _,r in t.iterrows()],['25%','30%','50%'],xlim=(.7,7.0))
 for i,r in t.iterrows(): ax.text(4.5,i,f'q={r.fdr:.3f}',ha='left',va='center',fontsize=7)
 
 ax=axes[0,1];panel(ax,'B','Weighting and profile selection')
 forest(ax,[models.loc['primary'],models.loc['equal_child_weight'],earliest],['All profiles','Equal child weight','Earliest eligible\nprofile / child'],[BLUE,GREEN,ORANGE],xlim=(.075,5))
-ax=axes[1,0];panel(ax,'C','Uncertainty and influence')
+ax_c_outer=axes[1,0]
+c_spec=ax_c_outer.get_subplotspec().subgridspec(2,1,height_ratios=[1.6,1],hspace=.08)
+ax_c_outer.remove()
+ax_c=fig.add_subplot(c_spec[0]);ax_c_loo=fig.add_subplot(c_spec[1],sharex=ax_c)
+panel(ax_c,'C','Uncertainty and influence')
 r=models.loc['primary'];br=b[(b.model=='primary')&(b.metric=='odds_ratio')].iloc[0]
-for y,est,lo,hi,col,mark in [(0,r.effect,r.ci_lower,r.ci_upper,BLUE,'o'),(1,br.estimate,br.ci_lower,br.ci_upper,GREEN,'s'),(2,r.effect,loo.estimate_min,loo.estimate_max,GREY,'D')]:
- ax.errorbar(est,y,xerr=[[est-lo],[hi-est]],fmt=mark,color=col,capsize=3,ms=4.5,lw=1.2)
-ax.axvline(1,color=GREY,ls='--',lw=.8);ax.set_xscale('log');ax.set_xlim(.7,4.4);ax.set_ylim(2.55,-.55)
-ax.set_yticks(range(3),['Cluster 95% CI','Bootstrap 95% CI','Leave-one-child-out\npoint-estimate range']);ax.set_xlabel('Odds ratio')
-ax.xaxis.set_major_locator(FixedLocator([1,2,4]));ax.xaxis.set_major_formatter(FuncFormatter(lambda x,_: f'{x:g}'));ax.xaxis.set_minor_locator(NullLocator())
+for y,est,lo,hi,col,mark in [(0,r.effect,r.ci_lower,r.ci_upper,BLUE,'o'),(1,br.estimate,br.ci_lower,br.ci_upper,GREEN,'s')]:
+ ax_c.errorbar(est,y,xerr=[[est-lo],[hi-est]],fmt=mark,color=col,capsize=3,ms=4.5,lw=1.2)
+ax_c.axvline(1,color=GREY,ls='--',lw=.8);ax_c.set_xscale('log');ax_c.set_xlim(.7,4.4);ax_c.set_ylim(1.55,-.55)
+ax_c.set_yticks(range(2),['Cluster 95% CI','Bootstrap 95% CI'])
+ax_c.tick_params(axis='x',labelbottom=False)
+ax_c.xaxis.set_major_locator(FixedLocator([1,2,4]));ax_c.xaxis.set_major_formatter(FuncFormatter(lambda x,_: f'{x:g}'));ax_c.xaxis.set_minor_locator(NullLocator())
+loo_rng=np.random.default_rng(20261020)
+ax_c_loo.scatter(loo_points.effect,loo_rng.uniform(-.12,.12,len(loo_points)),s=17,color=GREY,alpha=.9,zorder=3)
+ax_c_loo.axvline(1,color=GREY,ls='--',lw=.8);ax_c_loo.set_xscale('log');ax_c_loo.set_xlim(.7,4.4);ax_c_loo.set_ylim(-.22,.22)
+ax_c_loo.set_yticks([0],['45 leave-one-child-out\nestimates']);ax_c_loo.set_xlabel('Odds ratio')
+ax_c_loo.xaxis.set_major_locator(FixedLocator([1,2,4]));ax_c_loo.xaxis.set_major_formatter(FuncFormatter(lambda x,_: f'{x:g}'));ax_c_loo.xaxis.set_minor_locator(NullLocator())
 
 ax=axes[1,1];panel(ax,'D','Moraxella burden by child')
 rng=np.random.default_rng(20261020)
@@ -156,14 +167,13 @@ for i,(group,col,label) in enumerate([(0,BLUE,'URI'),(1,ORANGE,'Sinusitis')]):
  ax.scatter(i+rng.uniform(-.15,.15,len(vals)),vals,s=18,facecolor='none',edgecolor=col,lw=.8)
  ax.plot([i-.22,i+.22],[np.median(vals)]*2,color=col,lw=2)
 ax.set_xticks([0,1],['URI\n26 children','Sinusitis\n19 children']);ax.set_xlim(-.5,1.5);ax.set_ylim(-4,104);ax.set_ylabel('Moraxella-dominant profiles\nper child (%)')
-fig.text(.52,.025,'A: 25% and 30% classifications are identical; q adjusts three threshold tests.\nA–B: child-cluster 95% CIs; earliest eligible profile is not necessarily before illness.\nC: bootstrap 1,915/2,000 estimable draws; influence range is not a CI. D: bars mark group medians.',ha='center',fontsize=8)
 save(fig,4)
 source(4,'A',P,'threshold_sensitivity.tsv','threshold_percent;effect;ci_lower;ci_upper;fdr','Three thresholds with BH across three sensitivity tests')
 source(4,'B',P,'adjusted_models.tsv','model;effect;ci_lower;ci_upper','Primary and equal_child_weight rows')
 source(4,'B',P,'earliest_profile_model.tsv','effect;ci_lower;ci_upper','One earliest eligible profile per child, not necessarily before illness')
 source(4,'C',P,'adjusted_models.tsv','model;effect;ci_lower;ci_upper','Primary clustered analytical interval')
 source(4,'C',P,'bootstrap_summary.tsv','model;metric;estimate;ci_lower;ci_upper;successful;requested','Primary OR percentile 95% CI conditional on estimability')
-source(4,'C',P,'leave_one_child_out_summary.tsv','estimate_min;estimate_max;n_fits','45 omitted-child point estimates; min/max range, not CI')
+source(4,'C',P,'leave_one_child_out.tsv','omitted_child;effect','All 45 primary-model leave-one-child-out odds-ratio point estimates; plot each effect directly without interval encoding')
 source(4,'D',P,'child_burden.tsv','sinusitis_binary;moraxella_fraction','Each child once; fraction times100; deterministic jitter; horizontal sample median')
 
 # Figure 5: anatomy context and actual paired differences.
@@ -174,16 +184,20 @@ colors=[BLUE,ORANGE,'#E69F00',GREEN,PURPLE,'#56B4E9','#C8C8C8']
 hatches=['','//','..','\\\\','xx','++','']
 lookup={'Moraxella-dominant':'moraxella_dominant','Haemophilus-dominant':'haemophilus_dominant','Streptococcus-dominant':'streptococcus_dominant','Fusobacterium/anaerobe-dominant':'anaerobe_dominant','Neisseria-dominant':'neisseria_dominant','Other-dominant':'other_dominant','Mixed community':'mixed'}
 states['key']=states.state_label.map(lookup);assert states.key.notna().all()
-fig=plt.figure(figsize=(8.1,6.4));gs=fig.add_gridspec(2,2,height_ratios=[1.1,1],left=.12,right=.98,top=.91,bottom=.12,hspace=.85,wspace=.42)
+fig=plt.figure(figsize=(8.1,6.4));gs=fig.add_gridspec(2,2,height_ratios=[1.1,1],left=.12,right=.98,top=.91,bottom=.08,hspace=.85,wspace=.42)
 ax=fig.add_subplot(gs[0,:]);panel(ax,'A','Dominant community states (30% threshold)')
 sets=[states[states.outcome_group=='URI'].key,states[states.outcome_group=='Sinusitis'].key]
 for group,tissue in [('HP','adenoid'),('HP','tonsil'),('SOM','adenoid'),('SOM','tonsil')]: sets.append(ext[(ext.clinical_group==group)&(ext.tissue==tissue)].state_key)
 labels=['URI\n(n=180)','Sinusitis\n(n=143)','HP adenoid\n(n=14)','HP tonsil\n(n=14)','SOM adenoid\n(n=14)','SOM tonsil\n(n=14)']
 bottom=np.zeros(6)
 for key,label,col,hatch in zip(state_keys,state_labels,colors,hatches):
- vals=np.array([(s==key).mean()*100 for s in sets]);ax.bar(range(6),vals,bottom=bottom,color=col,edgecolor='white',lw=.5,label=label,hatch=hatch);bottom+=vals
+ vals=np.array([(s==key).mean()*100 for s in sets]);ax.bar(range(6),vals,bottom=bottom,color=col,edgecolor='white',lw=.5,label=label,hatch=hatch,zorder=2);bottom+=vals
 assert np.allclose(bottom,100)
-ax.axvline(1.5,color='#555555',lw=.8,ls=':');ax.set_xticks(range(6),labels);ax.set_ylim(0,100);ax.set_ylabel('Profiles (%)')
+ax.axvspan(-.5,1.5,facecolor='#F2F6F8',zorder=0);ax.axvspan(1.5,5.5,facecolor='#F8F5EF',zorder=0)
+ax.axvline(1.5,color='#555555',lw=1,ls='-',zorder=3)
+ax.text(.5,.965,'Primary follow-up cohort\n45 children · 323 profiles',transform=ax.get_xaxis_transform(),ha='center',va='center',fontsize=7.5,weight='bold')
+ax.text(3.5,.965,'Independent surgical anatomy cohort\n28 children · 56 profiles',transform=ax.get_xaxis_transform(),ha='center',va='center',fontsize=7.5,weight='bold')
+ax.set_xticks(range(6),labels);ax.set_ylim(0,115);ax.set_yticks(np.arange(0,101,20));ax.set_ylabel('Profiles (%)')
 ax.legend(handles=[Patch(facecolor=c,hatch=h,edgecolor='white',label=l) for c,h,l in zip(colors,hatches,state_labels)],loc='upper center',bbox_to_anchor=(.5,-.29),ncol=4,frameon=False,fontsize=7.5,handlelength=1.5,columnspacing=1.3)
 diffs=read(E,'patient_paired_differences.tsv');eff=read(E,'paired_genus_effects.tsv');patient_groups=ext[['patient_id','clinical_group']].drop_duplicates()
 for j,genus in enumerate(['Moraxella','Haemophilus']):
@@ -197,7 +211,6 @@ for j,genus in enumerate(['Moraxella','Haemophilus']):
  ax.axhline(0,color=GREY,ls='--',lw=.8);ax.set_xlim(-.5,.5);ax.set_xticks([]);ax.set_ylabel('Tonsil − adenoid\n(percentage points)')
  ax.text(.98,.60,f'Median {r.median_paired_difference:.2f} pp\nBH q={r.p_bh:.4f}',transform=ax.transAxes,ha='right',va='top',fontsize=8)
  if j==0: ax.legend(loc='lower right',frameon=False,fontsize=8)
-fig.text(.5,.025,'A: descriptive profile proportions across separate cohorts. B–C: 28 paired children (14 HP, 14 SOM);\npoints show individual differences; black line shows paired median; q adjusts 27 paired genus-by-group tests.',ha='center',fontsize=8)
 save(fig,5)
 source(5,'A',P,'state_assignments.tsv','outcome_group;state_label','State count divided by all profiles in each primary group; 30% dominance classification')
 source(5,'A',E,'sample_states.tsv','threshold_percent;clinical_group;tissue;state_key','Select30%; state count divided by14profiles per tissue/group; preserve published percentages')
