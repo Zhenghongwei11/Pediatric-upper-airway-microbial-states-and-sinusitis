@@ -1,33 +1,18 @@
 # Supplementary Tables
 
-The workbook contains seven numbered tables, S1–S7. Companion worksheets retain long row-level membership, paired-value, and sample-label details under the same table numbers. Markdown values are rounded for readability; the workbook preserves the precision stored in the source TSVs.
+The repository provides one combined workbook with 17 worksheets: a Read Me sheet, seven main table sheets, and nine supporting sheets. Worksheet groups follow the current submission numbering. Companion worksheets retain long row-level membership, paired-value, and sample-label details. Markdown values are rounded for readability; workbook values retain the precision stored in the source TSVs.
 
 | Table | Title | Main worksheet | Supporting worksheets |
 |---|---|---|---|
-| S1 | Covariate coding and missingness | `S1_Covariates` | — |
-| S2 | Public dataset landscape and selection flow | `S2_Datasets` | — |
-| S3 | Moraxella threshold counts and adjusted associations | `S3_Thresholds` | `S3_ExternalCounts`, `S3_ExternalLabels` |
-| S4 | Primary and focused model summaries | `S4_Models` | `S4_Bootstrap`, `S4_LOO`, `S4_Membership` |
-| S5 | Paired genus effects, zeros, and tied ranks | `S5_PairedTests` | `S5_PairValues` |
-| S6 | Community-level tests and diagnostics | `S6_Community` | `S6_ExternalTests`, `S6_CentroidDistances` |
+| S1 | Public dataset landscape and selection flow | `S1_Datasets` | — |
+| S2 | Primary and focused model summaries | `S2_Models` | `S2_Bootstrap`, `S2_LOO`, `S2_Membership` |
+| S3 | Covariate coding and missingness | `S3_Covariates` | — |
+| S4 | Paired genus effects, zeros, and tied ranks | `S4_PairedTests` | `S4_PairValues` |
+| S5 | Community-level tests and diagnostics | `S5_Community` | `S5_ExternalTests`, `S5_CentroidDistances` |
+| S6 | Moraxella threshold counts and adjusted associations | `S6_Thresholds` | `S6_ExternalCounts`, `S6_ExternalLabels` |
 | S7 | Child-level burden and earliest-profile analyses | `S7_ChildAnalysis` | `S7_ChildFlow` |
 
-## S1. Covariate coding and missingness
-
-| Variable | Profiles (n) | Missing profiles (n) | Coding / values |
-| --- | --- | --- | --- |
-| sinusitis_binary | 323 | 0 | Binary outcome: URI / sinusitis (0/1) |
-| moraxella_30 | 323 | 0 | Binary exposure: below / at least 30% (0/1) |
-| child_id | 323 | 0 | De-identified public child IDs; memberships are listed in S4 and S7 |
-| season | 323 | 0 | Fall; Spring; Summer; Winter |
-| daycare | 323 | 0 | No; Yes |
-| tobacco_exposure | 323 | 0 | No; Yes |
-| virus_count | 323 | 0 | 0; 1; 2; 4 |
-| age_init | 323 | 0 | 4; 5; 6 years |
-| shannon | 323 | 0 | Continuous Shannon diversity index |
-| AB_Taken | 323 | 0 | Binary antibiotic-taken field (0/1) |
-
-## S2. Dataset landscape and selection flow
+## S1. Dataset landscape and selection flow
 
 The table summarizes 11 candidate datasets considered in a targeted feasibility screen of public pediatric airway and ENT cohorts. Study-size descriptions are drawn from the dataset records, and primary endpoint flow is shown separately from the candidate landscape.
 
@@ -55,17 +40,7 @@ The table summarizes 11 candidate datasets considered in a targeted feasibility 
 | Pediatric ENT cohort with unverified group labels | 1 | — | 75 | Not analyzed | Public SRA, BioSample, and article materials do not currently verify sample-level assignments to adenoid hypertrophy, allergic rhinitis, or control groups. |
 | Other candidates not selected for the primary endpoint analysis | 8 | — | — | Not selected for primary analysis | Age range, endpoint, sampling site, assay modality, or clinical labels differ from the primary clinical question. |
 
-## S3. Threshold counts and adjusted associations
-
-Each row uses the 323-profile, 45-child endpoint set. Exposed and unexposed child counts can overlap because children may contribute profiles to both exposure categories.
-
-| Threshold | Exposed profiles / sinusitis profiles | Unexposed profiles / sinusitis profiles | Adjusted OR (95% CI) | Raw P | BH FDR |
-| --- | --- | --- | --- | --- | --- |
-| 25% | 164 / 85 | 159 / 58 | 1.802 (1.021–3.182) | 0.04254 | 0.0638 |
-| 30% | 164 / 85 | 159 / 58 | 1.802 (1.021–3.182) | 0.04254 | 0.0638 |
-| 50% | 149 / 77 | 174 / 66 | 1.744 (0.9532–3.192) | 0.07021 | 0.07021 |
-
-## S4. Model summaries and explicit membership
+## S2. Model summaries and explicit membership
 
 The profile-level models use child-cluster robust inference where specified in the workbook. Sensitivity models remain labeled as such; genus models belong to a six-model focused family.
 
@@ -90,9 +65,24 @@ Focused genus models:
 | Corynebacterium | 1.006 (0.8796–1.15) | 0.9324 | 0.9324 | 0.033 | 0.02165 |
 | Alloiococcus | 0.9564 (0.8126–1.126) | 0.5841 | 0.8761 | 0.0908 | 0.0645 |
 
-Primary child-cluster bootstrap odds ratio: 1.802 (percentile 95% interval 1.033–3.27; 1915 successful / 2000 requested resamples). Leave-one-child-out primary odds ratios ranged from 1.627 to 2.035 across 45 fits; this is an influence range, not a confidence interval. The companion `S4_Membership` worksheet contains all 19,458 model/sample/child/outcome membership records from `model_membership.tsv`.
+Primary child-cluster bootstrap odds ratio: 1.802 (percentile 95% interval 1.033–3.27; 1915 successful / 2000 requested resamples). Leave-one-child-out primary odds ratios ranged from 1.627 to 2.035 across 45 fits; this is an influence range, not a confidence interval. The companion `S2_Membership` worksheet contains all 19,458 model/sample/child/outcome membership records from `model_membership.tsv`.
 
-## S5. Paired genus effects, zeros, and tied ranks
+## S3. Covariate coding and missingness
+
+| Variable | Profiles (n) | Missing profiles (n) | Coding / values |
+| --- | --- | --- | --- |
+| sinusitis_binary | 323 | 0 | Binary outcome: URI / sinusitis (0/1) |
+| moraxella_30 | 323 | 0 | Binary exposure: below / at least 30% (0/1) |
+| child_id | 323 | 0 | De-identified public child IDs; memberships are listed in S2 and S7 |
+| season | 323 | 0 | Fall; Spring; Summer; Winter |
+| daycare | 323 | 0 | No; Yes |
+| tobacco_exposure | 323 | 0 | No; Yes |
+| virus_count | 323 | 0 | 0; 1; 2; 4 |
+| age_init | 323 | 0 | 4; 5; 6 years |
+| shannon | 323 | 0 | Continuous Shannon diversity index |
+| AB_Taken | 323 | 0 | Binary antibiotic-taken field (0/1) |
+
+## S4. Paired genus effects, zeros, and tied ranks
 
 All 27 preselected paired tests are shown. The signed difference is tonsil minus adenoid in percentage points; the source Wilcoxon zero method is `wilcox`, with continuity correction off. The companion worksheet retains patient-level paired values.
 
@@ -126,7 +116,7 @@ All 27 preselected paired tests are shown. The signed difference is tonsil minus
 | tonsil_minus_adenoid_SOM | SOM | Prevotella | 14 | 3.896 | 0 | 0 / 0 | 0.001887 | 0.01065 |
 | tonsil_minus_adenoid_SOM | SOM | Gemella | 14 | -0.9696 | 0 | 0 / 0 | 0.5509 | 0.6198 |
 
-## S6. Community tests and diagnostics
+## S5. Community tests and diagnostics
 
 Primary-child and external-patient analyses are presented independently. Comparison codes are expanded into descriptive English, while numeric results retain their source values. The primary PERMANOVA uses 45 child-mean compositions; the external cohort has 28 paired patients and 56 samples. PERMANOVA and dispersion tests are both shown.
 
@@ -147,6 +137,16 @@ Primary-child and external-patient analyses are presented independently. Compari
 | Mean distance to median: URI | 0.5828 |
 | Positive PCoA eigenvalues | 43 |
 | Negative PCoA eigenvalues after Lingoes correction | 0 |
+
+## S6. Threshold counts and adjusted associations
+
+Each row uses the 323-profile, 45-child endpoint set. Exposed and unexposed child counts can overlap because children may contribute profiles to both exposure categories.
+
+| Threshold | Exposed profiles / sinusitis profiles | Unexposed profiles / sinusitis profiles | Adjusted OR (95% CI) | Raw P | BH FDR |
+| --- | --- | --- | --- | --- | --- |
+| 25% | 164 / 85 | 159 / 58 | 1.802 (1.021–3.182) | 0.04254 | 0.0638 |
+| 30% | 164 / 85 | 159 / 58 | 1.802 (1.021–3.182) | 0.04254 | 0.0638 |
+| 50% | 149 / 77 | 174 / 66 | 1.744 (0.9532–3.192) | 0.07021 | 0.07021 |
 
 ## S7. Child-level burden and earliest-profile analyses
 
@@ -174,29 +174,29 @@ All result values are copied from the listed files; the builder does not refit m
 
 | Table | Source path | Source rows | Use |
 |---|---|---:|---|
-| S1 | `results/primary/covariate_coding_missingness.tsv` | 10 | Coding and missing-profile counts |
-| S2 | `docs/DATASET_LANDSCAPE.tsv` | 11 | Candidate dataset descriptors and access links |
-| S2 | `docs/DATASET_SUITABILITY_DECISION.md` | 11 decisions | Disposition and rationale for each candidate |
-| S2 | `docs/DATASET_SCREEN_FLOW.tsv` | 4 of 5 records | Dataset screen and non-primary cohort flow; primary endpoint counts are sourced separately |
-| S2 | `results/primary/cohort_flow.tsv` | 3 | Finalized primary release, exclusion, and analysis flow |
-| S3 | `results/primary/threshold_sensitivity.tsv` | 3 | Primary 25%, 30%, and 50% threshold counts and models |
-| S3 | `results/primary/threshold_agreement.tsv` | 1 | Primary 25% versus 30% classification agreement |
-| S3 | `results/external/state_counts.tsv` | 47 | External state-count distribution |
-| S3 | `results/external/threshold_concordance.tsv` | 56 | Per-sample external state labels at 25%, 30%, and 50% |
-| S4 | `results/primary/adjusted_models.tsv` | 6 | profile-level association/sensitivity |
-| S4 | `results/primary/genus_models.tsv` | 6 | focused genus abundance |
-| S4 | `results/primary/no_tobacco_model.tsv` | 1 | tobacco-restricted sensitivity |
-| S4 | `results/primary/bootstrap_summary.tsv` | 11 | Point estimates, bootstrap intervals, successful and failed resamples |
-| S4 | `results/primary/leave_one_child_out.tsv` | 45 | Exact model fit by omitted child |
-| S4 | `results/primary/leave_one_child_out_summary.tsv` | 1 | Influence range summary |
-| S4 | `results/primary/model_membership.tsv` | 19458 | Sample, child, and outcome membership for all fitted models |
-| S5 | `results/external/paired_genus_effects.tsv` | 27 | All preselected paired genus-by-group tests |
-| S5 | `results/external/patient_paired_differences.tsv` | 252 | Patient-level genus values used by paired comparisons |
-| S6 | `results/primary/community_tests.tsv` | 2 | Primary child-level PERMANOVA and PERMDISP |
-| S6 | `results/primary/community_diagnostics.txt` | text report | Primary distance-to-median and eigenvalue diagnostics |
-| S6 | `results/external/permanova.tsv` | 3 | External-cohort Bray–Curtis PERMANOVA results |
-| S6 | `results/external/dispersion.tsv` | 3 | External-cohort dispersion diagnostics |
-| S6 | `results/external/centroid_distances.tsv` | 112 | Per-sample distance to group centroid |
+| S1 | `docs/DATASET_LANDSCAPE.tsv` | 11 | Candidate dataset descriptors and access links |
+| S1 | `docs/DATASET_SUITABILITY_DECISION.md` | 11 decisions | Disposition and rationale for each candidate |
+| S1 | `docs/DATASET_SCREEN_FLOW.tsv` | 4 of 5 records | Dataset screen and non-primary cohort flow; primary endpoint counts are sourced separately |
+| S1 | `results/primary/cohort_flow.tsv` | 3 | Finalized primary release, exclusion, and analysis flow |
+| S2 | `results/primary/adjusted_models.tsv` | 6 | profile-level association/sensitivity |
+| S2 | `results/primary/genus_models.tsv` | 6 | focused genus abundance |
+| S2 | `results/primary/no_tobacco_model.tsv` | 1 | tobacco-restricted sensitivity |
+| S2 | `results/primary/bootstrap_summary.tsv` | 11 | Point estimates, bootstrap intervals, successful and failed resamples |
+| S2 | `results/primary/leave_one_child_out.tsv` | 45 | Exact model fit by omitted child |
+| S2 | `results/primary/leave_one_child_out_summary.tsv` | 1 | Influence range summary |
+| S2 | `results/primary/model_membership.tsv` | 19458 | Sample, child, and outcome membership for all fitted models |
+| S3 | `results/primary/covariate_coding_missingness.tsv` | 10 | Coding and missing-profile counts |
+| S4 | `results/external/paired_genus_effects.tsv` | 27 | All preselected paired genus-by-group tests |
+| S4 | `results/external/patient_paired_differences.tsv` | 252 | Patient-level genus values used by paired comparisons |
+| S5 | `results/primary/community_tests.tsv` | 2 | Primary child-level PERMANOVA and PERMDISP |
+| S5 | `results/primary/community_diagnostics.txt` | text report | Primary distance-to-median and eigenvalue diagnostics |
+| S5 | `results/external/permanova.tsv` | 3 | External-cohort Bray–Curtis PERMANOVA results |
+| S5 | `results/external/dispersion.tsv` | 3 | External-cohort dispersion diagnostics |
+| S5 | `results/external/centroid_distances.tsv` | 112 | Per-sample distance to group centroid |
+| S6 | `results/primary/threshold_sensitivity.tsv` | 3 | Primary 25%, 30%, and 50% threshold counts and models |
+| S6 | `results/primary/threshold_agreement.tsv` | 1 | Primary 25% versus 30% classification agreement |
+| S6 | `results/external/state_counts.tsv` | 47 | External state-count distribution |
+| S6 | `results/external/threshold_concordance.tsv` | 56 | Per-sample external state labels at 25%, 30%, and 50% |
 | S7 | `results/primary/child_burden.tsv` | 45 | Child-level burden and covariates |
 | S7 | `results/primary/child_burden_model.tsv` | 1 | Child burden per 25 percentage-point increase |
 | S7 | `results/primary/earliest_profile_model.tsv` | 1 | Earliest eligible profile per child |

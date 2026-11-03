@@ -31,7 +31,7 @@ The R installation script checks the R version and installs `phyloseq` 1.50.0, `
 
 - `results/primary/` and `results/external/`: analysis tables, diagnostics, and run provenance.
 - `results/tables/`: main Tables 1–3. The historical dataset-screen input is `docs/DATASET_SCREEN_FLOW.tsv`.
-- `results/supplementary/`: supplementary Tables S1–S7 in XLSX and Markdown formats.
+- `results/supplementary/`: one combined XLSX workbook (Read Me plus 16 numbered worksheets) and a Markdown summary. The workbook follows the submission numbering: S1 dataset landscape, S2 model summaries, S3 covariate coding, S4 paired genus effects, S5 community tests, S6 threshold analyses, and S7 child-level analyses. See [Supplementary_Tables.md](results/supplementary/Supplementary_Tables.md) for the worksheet map.
 - `plots/publication/pdf/` and `plots/publication/png/`: Figures 1–5.
 - `docs/FIGURE_PROVENANCE.tsv` and `docs/TABLE_PROVENANCE.tsv`: source-table and script mapping for each figure and table.
 

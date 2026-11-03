@@ -24,6 +24,14 @@ OUTPUT_DIR = ROOT / "results/supplementary"
 OUTPUT_XLSX = OUTPUT_DIR / "Supplementary_Tables.xlsx"
 OUTPUT_MD = OUTPUT_DIR / "Supplementary_Tables.md"
 
+# The source-analysis groups retain their established internal labels above.
+# This map gives each group the number used in the current submission files.
+SUBMISSION_TABLE_NUMBER = {1: 3, 2: 1, 3: 6, 4: 2, 5: 4, 6: 5, 7: 7}
+ALL_SUPPLEMENTARY_TABLES_RANGE = re.compile(
+    r"(?<![A-Za-z0-9_])S1\s*(?:-|–|—|−|…|\bto\b|\bthrough\b)\s*S7(?![A-Za-z0-9_])",
+    flags=re.IGNORECASE,
+)
+
 NAVY = "1F4E78"
 BLUE = "D9EAF7"
 PALE = "F3F6F8"
@@ -470,6 +478,131 @@ def same_value(actual: Any, expected: Any) -> bool:
     return actual == expected
 
 
+def remap_supplementary_references(text: str) -> str:
+    """Change table and worksheet references without changing numeric values."""
+    preserved_ranges: list[tuple[str, str]] = []
+
+    def preserve_all_tables_range(match: re.Match[str]) -> str:
+        token = f"__ALL_SUPPLEMENTARY_TABLES_RANGE_{len(preserved_ranges)}__"
+        preserved_ranges.append((token, match.group(0)))
+        return token
+
+    text = ALL_SUPPLEMENTARY_TABLES_RANGE.sub(preserve_all_tables_range, text)
+    text = re.sub(
+        r"(?<![A-Za-z0-9])S([1-7])(?=_)",
+        lambda match: f"S{SUBMISSION_TABLE_NUMBER[int(match.group(1))]}",
+        text,
+    )
+    text = re.sub(
+        r"(?<![A-Za-z0-9])S([1-7])(?![A-Za-z0-9_])",
+        lambda match: f"S{SUBMISSION_TABLE_NUMBER[int(match.group(1))]}",
+        text,
+    )
+    for token, original_range in preserved_ranges:
+        text = text.replace(token, original_range)
+    return text
+
+
+def remap_sheet_name(name: str) -> str:
+    match = re.match(r"^S([1-7])_(.+)$", name)
+    if not match:
+        return name
+    return f"S{SUBMISSION_TABLE_NUMBER[int(match.group(1))]}_{match.group(2)}"
+
+
+def sort_numbered_table_rows(ws, table_name: str) -> None:
+    """Sort an index/provenance table by its visible S-number, preserving rows."""
+    from openpyxl.utils.cell import range_boundaries
+
+    table = ws.tables[table_name]
+    min_col, min_row, max_col, max_row = range_boundaries(table.ref)
+    if max_row <= min_row + 1:
+        return
+    rows = [
+        [ws.cell(row=row, column=col).value for col in range(min_col, max_col + 1)]
+        for row in range(min_row + 1, max_row + 1)
+    ]
+    rows.sort(key=lambda row: int(str(row[0])[1:]))
+    for row_offset, values in enumerate(rows, start=min_row + 1):
+        for col_offset, value in enumerate(values, start=min_col):
+            ws.cell(row=row_offset, column=col_offset, value=value)
+
+
+def apply_submission_numbering(wb, checks: list[tuple[Any, ...]]) -> list[tuple[Any, ...]]:
+    """Renumber workbook labels and tabs while leaving source data cells intact."""
+    for ws in wb.worksheets:
+        if ws.title == "Read Me":
+            cells = (cell for row in ws.iter_rows() for cell in row)
+        else:
+            # Numbered workbook titles are the only table references in the
+            # data sheets; source values and their stored precision stay intact.
+            cells = iter((ws["A1"],))
+        for cell in cells:
+            if isinstance(cell.value, str):
+                cell.value = remap_supplementary_references(cell.value)
+
+    for ws in wb.worksheets:
+        ws.title = remap_sheet_name(ws.title)
+
+    read_me = wb["Read Me"]
+    sort_numbered_table_rows(read_me, "SupplementTableIndex")
+    sort_numbered_table_rows(read_me, "SupplementSources")
+
+    original_order = {ws.title: index for index, ws in enumerate(wb.worksheets)}
+    wb._sheets.sort(key=lambda ws: (
+        0 if ws.title == "Read Me" else 1,
+        int(re.match(r"^S([1-7])_", ws.title).group(1)) if ws.title != "Read Me" else 0,
+        original_order[ws.title],
+    ))
+
+    remapped_checks = []
+    for check in checks:
+        remapped_checks.append((remap_sheet_name(check[0]), *check[1:]))
+    return remapped_checks
+
+
+def sort_numbered_markdown_rows(text: str) -> str:
+    lines = text.splitlines(keepends=True)
+    i = 0
+    while i < len(lines):
+        if not re.match(r"^\|\s*S[1-7]\s*\|", lines[i]):
+            i += 1
+            continue
+        end = i + 1
+        while end < len(lines) and re.match(r"^\|\s*S[1-7]\s*\|", lines[end]):
+            end += 1
+        block = lines[i:end]
+        block.sort(key=lambda line: int(re.match(r"^\|\s*S([1-7])\s*\|", line).group(1)))
+        lines[i:end] = block
+        i = end
+    return "".join(lines)
+
+
+def prepare_supplementary_markdown(content: str) -> str:
+    """Renumber and reorder the table index, sections, and source index."""
+    source_marker = "\n## Source index\n"
+    source_at = content.index(source_marker)
+    main_content = content[:source_at]
+    source_content = content[source_at:]
+    heading_pattern = re.compile(r"(?m)^## S([1-7])\. [^\n]*$")
+    headings = list(heading_pattern.finditer(main_content))
+    if len(headings) != 7:
+        raise AssertionError(f"Expected seven supplementary sections, found {len(headings)}")
+
+    preamble = main_content[:headings[0].start()]
+    sections = []
+    for index, heading in enumerate(headings):
+        section_end = headings[index + 1].start() if index + 1 < len(headings) else len(main_content)
+        old_number = int(heading.group(1))
+        sections.append((SUBMISSION_TABLE_NUMBER[old_number], main_content[heading.start():section_end]))
+    sections.sort(key=lambda item: item[0])
+
+    preamble = sort_numbered_markdown_rows(remap_supplementary_references(preamble))
+    mapped_sections = [remap_supplementary_references(section) for _, section in sections]
+    source_content = sort_numbered_markdown_rows(remap_supplementary_references(source_content))
+    return preamble + "".join(mapped_sections) + source_content
+
+
 def verify_table(wb, ws_name: str, header_row: int, headers: list[str], rows: list[list[Any]],
                  label: str, source_path: str | None = None,
                  source_field_map: list[str] | None = None,
@@ -532,7 +665,7 @@ def add_source_index(wb, provenance: list[tuple[str, str, int | str, str]]) -> N
         ["S3", "Threshold counts and adjusted associations", "S3_Thresholds; S3_ExternalCounts; S3_ExternalLabels", "results/primary/threshold_sensitivity.tsv; threshold_agreement.tsv; results/external/state_counts.tsv; threshold_concordance.tsv", "Nominal P values and BH-adjusted values are shown separately."],
         ["S4", "Model summaries and analysis membership", "S4_Models; S4_Bootstrap; S4_LOO; S4_Membership", "results/primary/adjusted_models.tsv; genus_models.tsv; no_tobacco_model.tsv; bootstrap_summary.tsv; leave_one_child_out*.tsv; model_membership.tsv", "Membership lists the source de-identified sample and child IDs for each fitted model."],
         ["S5", "Paired genus effects, zeros, and ties", "S5_PairedTests; S5_PairValues", "results/external/paired_genus_effects.tsv; patient_paired_differences.tsv", "The reported family contains 27 preselected paired tests."],
-        ["S6", "Community-level tests and diagnostics", "S6_Community; S6_CentroidDistances", "results/primary/community_tests.tsv; community_diagnostics.txt; results/external/permanova.tsv; dispersion.tsv; centroid_distances.tsv", "External-cohort PERMANOVA and dispersion results are reported independently."],
+        ["S6", "Community-level tests and diagnostics", "S6_Community; S6_ExternalTests; S6_CentroidDistances", "results/primary/community_tests.tsv; community_diagnostics.txt; results/external/permanova.tsv; dispersion.tsv; centroid_distances.tsv", "External-cohort PERMANOVA and dispersion results are reported independently."],
         ["S7", "Child-level burden and earliest-profile analyses", "S7_ChildAnalysis; S7_ChildFlow", "results/primary/child_burden.tsv; child_burden_model.tsv; earliest_profile_model.tsv; cohort_flow.tsv; child_flow.tsv", "The earliest-profile model uses one first eligible profile per analyzed child."],
     ]
     for r, row in enumerate(index, start=5):
@@ -747,7 +880,7 @@ def main() -> None:
         if not set(source_fields).issubset(source_headers):
             raise ValueError(f"Missing required model field in {src}")
         for r in records:
-            row = [src.rsplit("/", 1)[-1], family]
+            row = [src, family]
             for field in summary_headers[2:]:
                 row.append(typed(r.get(field), field) if field in source_fields else None)
             output_rows.append(row)
@@ -897,7 +1030,7 @@ def main() -> None:
     ]:
         _, model_records = read_tsv(path)
         for r in model_records:
-            row = [analysis_label, path.rsplit("/", 1)[-1]] + [typed(r.get(h), h) for h in model_headers[2:]]
+            row = [analysis_label, path] + [typed(r.get(h), h) for h in model_headers[2:]]
             child_model_rows.append(row)
         source_meta.append(("S7", path, len(model_records), analysis_label))
     add_custom_table(ws, model_row, "S7ChildModels", model_headers, child_model_rows)
@@ -924,6 +1057,7 @@ def main() -> None:
 
     add_source_index(wb, source_meta)
     wb.active = 0
+    checks = apply_submission_numbering(wb, checks)
 
     # Workbook-level consistency and cell/value read-back checks.
     wb.save(OUTPUT_XLSX)
@@ -1133,7 +1267,7 @@ def write_markdown(source_meta: list[tuple[str, str, int | str, str]]) -> None:
     source_rows = "\n".join(f"| {table} | `{path}` | {count} | {use} |" for table, path, count, use in source_meta)
     content = f"""# Supplementary Tables
 
-The workbook contains seven numbered tables, S1–S7. Companion worksheets retain long row-level membership, paired-value, and sample-label details under the same table numbers. Markdown values are rounded for readability; the workbook preserves the precision stored in the source TSVs.
+The repository provides one combined workbook with 17 worksheets: a Read Me sheet, seven main table sheets, and nine supporting sheets. Worksheet groups follow the current submission numbering. Companion worksheets retain long row-level membership, paired-value, and sample-label details. Markdown values are rounded for readability; workbook values retain the precision stored in the source TSVs.
 
 | Table | Title | Main worksheet | Supporting worksheets |
 |---|---|---|---|
@@ -1209,7 +1343,7 @@ All result values are copied from the listed files; the builder does not refit m
 
 Workbook construction: `scripts/build_supplementary_tables.py`.
 """
-    OUTPUT_MD.write_text(content, encoding="utf-8")
+    OUTPUT_MD.write_text(prepare_supplementary_markdown(content), encoding="utf-8")
 
 
 if __name__ == "__main__":
